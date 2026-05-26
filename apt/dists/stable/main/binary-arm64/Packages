@@ -1,0 +1,18 @@
+Package: morie
+Version: 0.9.5.4
+Architecture: arm64
+Maintainer: Vansh Singh Ruhela <278967282+rootcoder007@users.noreply.github.com>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_0.9.5.4_arm64.deb
+Size: 1498
+MD5sum: 844f0a789623815bb3eebbcda55c2e5f
+SHA1: 20b2f6e7b9f932382e74f9ecbbacb170fa4bb125
+SHA256: d23d9c5cf89d9ec920b314cd1775fc667c124c5d4ef3dc28d47f664d910ca44a
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
