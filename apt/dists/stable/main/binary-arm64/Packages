@@ -6,9 +6,9 @@ Installed-Size: 0
 Depends: python3 (>= 3.10), python3-venv, python3-pip
 Filename: pool/main/morie_1.0.0_arm64.deb
 Size: 1508
-MD5sum: 04e8080e0205a743ed1980b48decdeb3
-SHA1: b24bdc86c99c6ea02685ee8a9e3263c16717c6fe
-SHA256: bbe154309066b20862017107f13da480f089d30a0b2a9b3f5ee33b970a389e6f
+MD5sum: 0dca61859fee8bda0d7bb14db133355a
+SHA1: 7de599a5ecf626f0eeb434f2d5c83709186e6f30
+SHA256: 77933218cb49412095808833d31ad65b9195a55d368decbac487c276429e6de9
 Section: default
 Priority: optional
 Homepage: https://github.com/rootcoder007/morie
