@@ -1,0 +1,254 @@
+# publish.yml -- self-contained apt + dnf publisher for the MORIE ecosystem.
+#
+# This repository OWNS its distribution pipeline for FOUR packages:
+#   morie              -- from PyPI  (launcher + postinst `pip install morie==V`)
+#   rmorie             -- from r-universe (postinst install.packages)
+#   rmoriedata         -- from r-universe
+#   rmoriebricklayer   -- from r-universe
+#
+# The packages carry no upstream source: each is a thin wrapper whose
+# post-install pulls from the canonical registry, so morie's .deb/.rpm are
+# arch-labelled (amd64/arm64, x86_64/aarch64) and the R packages are
+# Architecture: all / noarch (R compiles natively on the target).
+#
+# Design points:
+#   - Triggered by schedule (registry poll) or manual dispatch. The resolve
+#     job proceeds per-package ONLY when the artifact is actually live on
+#     its registry, so the publish-before-registry race class is impossible
+#     by construction.
+#   - Idempotent: packages already in the apt pool are skipped; a run with
+#     nothing new exits cleanly.
+#   - Inert until secrets exist: without GPG_PRIVATE_KEY/GPG_PASSPHRASE the
+#     run skips with a notice instead of failing.
+#   - Deploys with the default GITHUB_TOKEN to its own Pages branch -- no
+#     cross-repo PAT.
+name: publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      morie_version:
+        description: "morie version (blank = latest on PyPI)"
+        required: false
+      force:
+        description: "republish even if versions already in the pool (true/false)"
+        required: false
+        default: "false"
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    name: Resolve versions (gate on registries)
+    runs-on: ubuntu-latest
+    outputs:
+      proceed: ${{ steps.gate.outputs.proceed }}
+      plan: ${{ steps.gate.outputs.plan }}
+    steps:
+      - name: Gate + resolve all packages
+        id: gate
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          MORIE_INPUT: ${{ github.event.inputs.morie_version }}
+          FORCE: ${{ github.event.inputs.force }}
+        run: |
+          if [ -z "${GPG_PRIVATE_KEY}" ]; then
+            echo "::notice::GPG secrets not configured; publish is inert. Add GPG_PRIVATE_KEY + GPG_PASSPHRASE to enable."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          plan="[]"
+          add() { plan=$(printf '%s' "$plan" | jq -c --arg n "$1" --arg v "$2" --arg k "$3" '. + [{name:$n,version:$v,kind:$k}]'); }
+          in_pool() { curl -fsIL "https://rootcoder007.github.io/apt-morie/apt/pool/main/$1" >/dev/null 2>&1; }
+
+          # -- morie (PyPI; gate on the sdist actually being live) --
+          MV="${MORIE_INPUT}"
+          [ -z "$MV" ] && MV=$(curl -fsSL --retry 3 https://pypi.org/pypi/morie/json | python3 -c "import sys,json;print(json.load(sys.stdin)['info']['version'])" || true)
+          if [ -n "$MV" ]; then
+            SDIST=$(curl -fsSL --retry 3 "https://pypi.org/pypi/morie/${MV}/json" 2>/dev/null \
+              | python3 -c "import sys,json;print(next((u['url'] for u in json.load(sys.stdin)['urls'] if u['packagetype']=='sdist'),''))" || true)
+            if [ -z "$SDIST" ]; then
+              echo "::warning::morie ${MV} sdist not on PyPI (yet); skipping morie this run."
+            elif [ "$FORCE" != "true" ] && in_pool "morie_${MV}_amd64.deb"; then
+              echo "morie ${MV} already in pool; skip."
+            else
+              add morie "$MV" py
+            fi
+          fi
+
+          # -- R packages (r-universe) --
+          for pkg in rmorie rmoriedata rmoriebricklayer; do
+            RV=$(curl -fsSL --retry 3 "https://rootcoder007.r-universe.dev/api/packages/${pkg}" \
+              | python3 -c "import sys,json;print(json.load(sys.stdin).get('Version',''))" || true)
+            if [ -z "$RV" ]; then
+              echo "::warning::${pkg}: could not resolve version from r-universe; skipping."
+              continue
+            fi
+            if [ "$FORCE" != "true" ] && in_pool "${pkg}_${RV}_all.deb"; then
+              echo "${pkg} ${RV} already in pool; skip."
+              continue
+            fi
+            add "$pkg" "$RV" r
+          done
+
+          echo "plan: $plan"
+          echo "plan=$plan" >> "$GITHUB_OUTPUT"
+          if [ "$plan" = "[]" ]; then
+            echo "::notice::everything already published; nothing to do."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  build-and-publish:
+    name: Build packages + publish repo
+    needs: resolve
+    if: needs.resolve.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    env:
+      PLAN: ${{ needs.resolve.outputs.plan }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+
+      - name: Install tooling (fpm, rpm, apt repo tools)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            ruby ruby-dev build-essential rpm gnupg \
+            dpkg-dev apt-utils createrepo-c
+          sudo gem install --no-document fpm
+
+      - name: Build all planned packages
+        run: |
+          set -euo pipefail
+          chmod +x packaging/*.sh
+          printf '%s' "$PLAN" | jq -r '.[] | "\(.kind) \(.name) \(.version)"' \
+          | while read -r kind name version; do
+            echo "::group::build ${name} ${version} (${kind})"
+            if [ "$kind" = "py" ]; then
+              for arch in amd64 arm64; do ./packaging/fpm-deb.sh "$version" "$arch"; done
+              for arch in x86_64 aarch64; do ./packaging/fpm-rpm.sh "$version" "$arch"; done
+            else
+              ./packaging/fpm-r-deb.sh "$name" "$version"
+              ./packaging/fpm-r-rpm.sh "$name" "$version"
+            fi
+            echo "::endgroup::"
+          done
+          ls -lh dist/
+
+      - name: Import GPG signing key
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+          echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+          echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+          gpgconf --reload gpg-agent
+          KEYID=$(gpg --list-secret-keys --with-colons | awk -F: '/^sec:/ {print $5; exit}')
+          echo "GPG_KEYID=${KEYID}" >> "$GITHUB_ENV"
+
+      - name: Sign .rpm packages
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          cat > ~/.rpmmacros <<EOF
+          %_signature gpg
+          %_gpg_name ${GPG_KEYID}
+          %__gpg_sign_cmd %{__gpg} gpg --batch --pinentry-mode loopback --passphrase ${GPG_PASSPHRASE} --no-armor -u "%{_gpg_name}" -sbo %{__signature_filename} --digest-algo sha256 %{__plaintext_filename}
+          EOF
+          for rpm in dist/*.rpm; do
+            echo "Signing ${rpm}"
+            rpmsign --addsign "${rpm}"
+            rpm --checksig "${rpm}" || true
+          done
+
+      - name: Assemble apt repo (dists/stable/main/binary-*)
+        run: |
+          REPO=public/apt
+          mkdir -p "${REPO}/pool/main"
+          cp dist/*.deb "${REPO}/pool/main/"
+          for arch in amd64 arm64; do
+            BIN="${REPO}/dists/stable/main/binary-${arch}"
+            mkdir -p "${BIN}"
+            ( cd "${REPO}" && \
+              dpkg-scanpackages --arch "${arch}" pool/main /dev/null \
+                > "dists/stable/main/binary-${arch}/Packages" )
+            gzip -kf "${BIN}/Packages"
+          done
+
+      - name: Generate apt Release + sign
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          REPO=public/apt
+          cat > "${REPO}/dists/stable/Release" <<EOF
+          Origin: rootcoder007
+          Label: morie
+          Suite: stable
+          Codename: stable
+          Architectures: amd64 arm64
+          Components: main
+          Description: MORIE ecosystem apt repository
+          Date: $(date -Ru)
+          EOF
+          ( cd "${REPO}/dists/stable" && \
+            apt-ftparchive release . >> Release.tmp && \
+            cat Release Release.tmp > Release.new && mv Release.new Release && rm -f Release.tmp )
+          gpg --batch --pinentry-mode loopback --passphrase "${GPG_PASSPHRASE}" \
+              --default-key "${GPG_KEYID}" \
+              --detach-sign --armor -o "${REPO}/dists/stable/Release.gpg" \
+              "${REPO}/dists/stable/Release"
+          gpg --batch --pinentry-mode loopback --passphrase "${GPG_PASSPHRASE}" \
+              --default-key "${GPG_KEYID}" \
+              --clearsign -o "${REPO}/dists/stable/InRelease" \
+              "${REPO}/dists/stable/Release"
+
+      - name: Assemble dnf repo + repomd.xml
+        run: |
+          REPO=public/rpm
+          mkdir -p "${REPO}/packages"
+          cp dist/*.rpm "${REPO}/packages/"
+          createrepo_c "${REPO}"
+          cat > "${REPO}/morie.repo" <<'EOF'
+          [morie]
+          name=morie (rootcoder007)
+          baseurl=https://rootcoder007.github.io/apt-morie/rpm
+          enabled=1
+          gpgcheck=1
+          gpgkey=https://rootcoder007.github.io/apt-morie/key.gpg
+          EOF
+
+      - name: Sign repomd.xml
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          gpg --batch --pinentry-mode loopback --passphrase "${GPG_PASSPHRASE}" \
+              --default-key "${GPG_KEYID}" \
+              --detach-sign --armor \
+              -o public/rpm/repodata/repomd.xml.asc \
+              public/rpm/repodata/repomd.xml
+
+      - name: Export public key + landing page
+        run: |
+          gpg --armor --export "${GPG_KEYID}" > public/key.gpg
+          # index.html is a COMMITTED file in this repo; re-assert it on every
+          # publish so it stays canonical even if another publisher overlays it.
+          cp index.html public/index.html
+
+      - name: Deploy to GitHub Pages (this repo, own token)
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: main
+          force_orphan: false
+          keep_files: true
+          commit_message: "Publish apt/dnf repo (ecosystem sync)"
