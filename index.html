@@ -1,38 +1,9 @@
 <!doctype html><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>morie — apt / dnf repository</title>
-<style>
-  body{font:16px/1.6 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem;color:#1a1a1a;background:#fafafa}
-  h1{font-size:1.5rem} h2{font-size:1.1rem;margin-top:1.6rem}
-  pre{background:#282828;color:#ebdbb2;padding:.8rem 1rem;border-radius:6px;overflow-x:auto;font-size:.85rem}
-  code{font-family:ui-monospace,monospace}
-  a{color:#0b57d0} li{margin:.2rem 0}
-  @media (prefers-color-scheme: dark){body{color:#e8e8e8;background:#1c1c1c}a{color:#8ab4f8}}
-</style>
-<h1>morie &mdash; signed apt / dnf repository</h1>
-<p><a href="https://github.com/rootcoder007/morie">morie</a> is a multi-domain
-scientific computing toolkit (Python + R), AGPL-3.0-or-later. This site serves
-its signed <code>.deb</code> and <code>.rpm</code> packages.</p>
-<h2>Debian / Ubuntu (apt)</h2>
-<pre>sudo install -d -m 0755 /etc/apt/keyrings
-curl -fsSL https://rootcoder007.github.io/apt-morie/key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/rootcoder007.gpg
-echo "deb [signed-by=/etc/apt/keyrings/rootcoder007.gpg] https://rootcoder007.github.io/apt-morie/apt stable main" | sudo tee /etc/apt/sources.list.d/morie.list
-sudo apt update &amp;&amp; sudo apt install morie</pre>
-<h2>Fedora 41+ (dnf5)</h2>
-<pre>sudo dnf config-manager addrepo --from-repofile=https://rootcoder007.github.io/apt-morie/rpm/morie.repo
-sudo dnf install morie</pre>
-<h2>Fedora &le; 40 / RHEL (dnf4)</h2>
-<pre>sudo dnf config-manager --add-repo https://rootcoder007.github.io/apt-morie/rpm/morie.repo
-sudo dnf install morie</pre>
-<h2>Contents</h2>
+<title>apt-morie</title>
+<h1>morie apt / dnf repository</h1>
+<p>See <a href="https://github.com/rootcoder007/morie/blob/main/packaging/README.md">install instructions</a>.</p>
 <ul>
-  <li><a href="apt/">apt/</a> &mdash; Debian / Ubuntu pool + signed Release (amd64, arm64)</li>
-  <li><a href="rpm/">rpm/</a> &mdash; Fedora / RHEL packages + repodata (x86_64, aarch64)</li>
-  <li><a href="key.gpg">key.gpg</a> &mdash; GPG signing key</li>
-</ul>
-<h2>Ecosystem</h2>
-<ul>
-  <li><a href="https://pypi.org/project/morie/">PyPI</a> &middot; <a href="https://github.com/rootcoder007/homebrew-morie">Homebrew tap</a> &middot; <a href="https://github.com/rootcoder007/apt-morie">this repo</a></li>
-  <li><a href="https://rootcoder007.r-universe.dev">r-universe</a>: rmorie, rmoriedata, rmoriebricklayer</li>
-  <li><a href="https://github.com/rootcoder007/apt-morie#readme">Full install + verification docs</a></li>
+  <li><a href="apt/">apt/</a> &mdash; Debian / Ubuntu</li>
+  <li><a href="rpm/">rpm/</a> &mdash; Fedora / RHEL</li>
+  <li><a href="key.gpg">key.gpg</a> &mdash; signing key</li>
 </ul>
