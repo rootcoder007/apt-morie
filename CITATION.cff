@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "This repository distributes signed apt/dnf packages of morie. To cite, cite the morie software itself (see preferred-citation)."
+title: "apt-morie: signed apt and dnf repository for morie"
+authors:
+  - family-names: "Ruhela"
+    given-names: "Vansh Singh"
+    orcid: "https://orcid.org/0009-0004-1750-3592"
+    name-particle: "Singh"
+url: "https://rootcoder007.github.io/apt-morie/"
+repository-code: "https://github.com/rootcoder007/apt-morie"
+license: "AGPL-3.0-or-later"
+preferred-citation:
+  type: software
+  title: "morie: Multi-domain Open Research and Inferential Estimation"
+  authors:
+    - family-names: "Ruhela"
+      given-names: "Vansh Singh"
+      orcid: "https://orcid.org/0009-0004-1750-3592"
+  year: "2026"
+  url: "https://github.com/rootcoder007/morie"
