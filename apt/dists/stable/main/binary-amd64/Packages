@@ -1,14 +1,14 @@
 Package: morie
-Version: 1.1.7
+Version: 1.2.1
 Architecture: amd64
 Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
 Installed-Size: 0
 Depends: python3 (>= 3.10), python3-venv, python3-pip
-Filename: pool/main/morie_1.1.7_amd64.deb
-Size: 1498
-MD5sum: 0c174c13bf12c747664fc8649619035e
-SHA1: 49ba143215fd56f4e9ab32c919f5536cf15c4bf8
-SHA256: 554e213e9b809c485fa707c6cd6186b01d98cddc0915524dc7224574f85d71bf
+Filename: pool/main/morie_1.2.1_amd64.deb
+Size: 1506
+MD5sum: 8f3f41373e7a4ca281f8e74c8d7a6bb9
+SHA1: 7241c0fe792cc580b74bba34806b047781054059
+SHA256: aaf770de04b0f5a55d138fb990620430882b7378c22029209c6382ef65205b53
 Section: default
 Priority: optional
 Homepage: https://github.com/rootcoder007/morie
