@@ -5,10 +5,10 @@ Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
 Installed-Size: 0
 Depends: python3 (>= 3.10), python3-venv, python3-pip
 Filename: pool/main/morie_1.3.9_arm64.deb
-Size: 1508
-MD5sum: 59007c9ba40eb766a8865650dace3e31
-SHA1: d7dd790f4fdc81b95a74185112840bcb1c4d25fc
-SHA256: f7d08930872eadbdf3ef10a0105b5051bbc7d61626f7e54697858a4ea87ad72a
+Size: 1498
+MD5sum: 5dbea26820db30cf403b24156ea871bf
+SHA1: e3981707105b3cbbfe32a6e736746d7435e6a638
+SHA256: cdcba1e0f711f91db78ba930d96ff159b509af271dd2a8745e38b137cff55e43
 Section: default
 Priority: optional
 Homepage: https://github.com/rootcoder007/morie
