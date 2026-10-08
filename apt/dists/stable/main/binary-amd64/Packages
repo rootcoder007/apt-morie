@@ -6,9 +6,9 @@ Installed-Size: 0
 Depends: python3 (>= 3.10), python3-venv, python3-pip
 Filename: pool/main/morie_1.4.1_amd64.deb
 Size: 1514
-MD5sum: 9f6abb81f3a44cd50f8f4bd6dcff756a
-SHA1: f801b515bb42a2c58eb48a108783118b0ced286e
-SHA256: 5b7e7f87158639c7a6db5d1b34b552abf6bfdf9293dbbe4bbbf06c6ad43d05b1
+MD5sum: 10b28939baeb5b692f7b114f3c22d74b
+SHA1: a94ce3b0ff8c47cfab5860cbf80230f5e4ae6a66
+SHA256: b7a336021dbb220cc2c88dc4f1eb5e8fe98860f938c09e15cf894e44ec046e4a
 Section: default
 Priority: optional
 Homepage: https://github.com/rootcoder007/morie
