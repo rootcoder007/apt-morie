@@ -13,6 +13,10 @@
 <p><a href="https://github.com/rootcoder007/morie">morie</a> is a multi-domain
 scientific computing toolkit (Python + R), AGPL-3.0-or-later. This site serves
 its signed <code>.deb</code> and <code>.rpm</code> packages.</p>
+<p><strong>Signing key changed on 30 October 2026</strong> to
+<code>F82E A8D6 55D9 1879 570F A1BE 6E5D 6869 2E9D AB51</code>. If you added
+this repository before then, fetch the key again: the first two apt commands
+below, or <code>sudo rpm --import https://rootcoder007.github.io/apt-morie/key.gpg</code>.</p>
 <h2>Debian / Ubuntu (apt)</h2>
 <pre>sudo install -d -m 0755 /etc/apt/keyrings
 curl -fsSL https://rootcoder007.github.io/apt-morie/key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/rootcoder007.gpg
@@ -25,9 +29,11 @@ sudo dnf install morie</pre>
 <pre>sudo dnf config-manager --add-repo https://rootcoder007.github.io/apt-morie/rpm/morie.repo
 sudo dnf install morie</pre>
 <h2>R packages (same repository)</h2>
-<p>The ecosystem's R packages ship here too — thin wrappers whose post-install
-pulls from <a href="https://rootcoder007.r-universe.dev">r-universe</a> and
-compiles natively (requires <code>r-base</code> &ge; 4.3):</p>
+<p>The ecosystem's R packages ship here too: installing one installs that
+package from <a href="https://rootcoder007.r-universe.dev">r-universe</a> and
+compiles it on your machine. rmoriebricklayer needs R 4.1 or later (Debian 12+,
+Ubuntu 22.04+); rmoriedata and rmorie need R 4.3 or later (Debian 13+, Ubuntu
+24.04+). Fedora and EPEL 9/10 have both.</p>
 <pre># after adding the repository above:
 sudo apt install rmorie rmoriedata rmoriebricklayer   # Debian / Ubuntu
 sudo dnf install rmorie rmoriedata rmoriebricklayer   # Fedora / RHEL</pre>
@@ -35,7 +41,7 @@ sudo dnf install rmorie rmoriedata rmoriebricklayer   # Fedora / RHEL</pre>
 <ul>
   <li><a href="apt/">apt/</a> &mdash; Debian / Ubuntu pool + signed Release (amd64, arm64)</li>
   <li><a href="rpm/">rpm/</a> &mdash; Fedora / RHEL packages + repodata (x86_64, aarch64)</li>
-  <li><a href="key.gpg">key.gpg</a> &mdash; GPG signing key</li>
+  <li><a href="key.gpg">key.gpg</a> &mdash; GPG signing key (F82E A8D6 &hellip; 2E9D AB51)</li>
 </ul>
 <h2>Ecosystem</h2>
 <ul>

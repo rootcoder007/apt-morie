@@ -14,8 +14,14 @@ Despite the name, this one repository serves **both** package ecosystems, for **
 | Path | Ecosystem | Contents |
 |---|---|---|
 | [`apt/`](https://rootcoder007.github.io/apt-morie/apt/) | Debian / Ubuntu | `.deb` pool + signed `Release`/`InRelease` |
-| [`rpm/`](https://rootcoder007.github.io/apt-morie/rpm/) | Fedora / RHEL / openSUSE | signed `.rpm` packages + `repodata/` + [`morie.repo`](https://rootcoder007.github.io/apt-morie/rpm/morie.repo) |
+| [`rpm/`](https://rootcoder007.github.io/apt-morie/rpm/) | Fedora / RHEL | signed `.rpm` packages + `repodata/` + [`morie.repo`](https://rootcoder007.github.io/apt-morie/rpm/morie.repo) |
 | [`key.gpg`](https://rootcoder007.github.io/apt-morie/key.gpg) | both | ASCII-armored public signing key |
+
+> **Signing key changed on 30 October 2026.** The repository is now signed
+> with `F82E A8D6 55D9 1879 570F  A1BE 6E5D 6869 2E9D AB51`
+> ("MORIE packaging"). If you added it before then, fetch the key once more
+> (the first two commands of the install below, or the `rpm --import`
+> line for dnf); `apt update` and `dnf` refuse the repository until you do.
 
 ## Install — Debian / Ubuntu (apt)
 
@@ -27,7 +33,7 @@ echo "deb [signed-by=/etc/apt/keyrings/rootcoder007.gpg] https://rootcoder007.gi
   | sudo tee /etc/apt/sources.list.d/morie.list
 sudo apt update
 sudo apt install morie                                # Python toolkit
-sudo apt install rmorie rmoriedata rmoriebricklayer   # R packages (needs r-base >= 4.3)
+sudo apt install rmorie rmoriedata rmoriebricklayer   # R packages
 ```
 
 ## Install — Fedora 41+ (dnf5)
@@ -35,7 +41,8 @@ sudo apt install rmorie rmoriedata rmoriebricklayer   # R packages (needs r-base
 ```bash
 sudo dnf config-manager addrepo --from-repofile=https://rootcoder007.github.io/apt-morie/rpm/morie.repo
 sudo dnf install morie
-sudo dnf install rmorie rmoriedata rmoriebricklayer   # R packages (needs R >= 4.3)
+sudo dnf install rmorie rmoriedata rmoriebricklayer   # R packages
+# after a key change: sudo rpm --import https://rootcoder007.github.io/apt-morie/key.gpg
 ```
 
 ## Install — Fedora ≤ 40 / RHEL 8-9 (dnf4)
@@ -52,6 +59,21 @@ sudo yum-config-manager --add-repo https://rootcoder007.github.io/apt-morie/rpm/
 sudo yum install morie
 ```
 
+## R packages: what they need
+
+The R packages carry no R code themselves: installing one installs the
+package of that name from r-universe (and its dependencies from CRAN) into
+R's site library and compiles it on your machine, so the first install takes
+a few minutes. Removing the package removes it from the library again.
+
+| Package | Needs R | Debian / Ubuntu | Fedora / RHEL |
+|---|---|---|---|
+| `rmoriebricklayer` | 4.1 or later | Debian 12+, Ubuntu 22.04+ | Fedora, EPEL 9/10 |
+| `rmoriedata`, `rmorie` | 4.3 or later | Debian 13+, Ubuntu 24.04+ | Fedora, EPEL 9/10 |
+
+On RHEL and its rebuilds, enable EPEL and CRB first (`dnf install epel-release`,
+`dnf config-manager --set-enabled crb`).
+
 ## Verification
 
 Everything is authenticated against the project GPG key (`key.gpg`):
@@ -59,27 +81,28 @@ Everything is authenticated against the project GPG key (`key.gpg`):
 - apt: detached + clearsigned repository metadata (`Release.gpg`, `InRelease`)
 - rpm: per-package `rpmsign` signatures **and** a detached `repodata/repomd.xml.asc`
 
-## How this repository publishes (self-contained)
+## How this repository is published
 
-The pipeline lives **in this repository**: [`.github/workflows/publish.yml`](.github/workflows/publish.yml)
-polls PyPI and r-universe (every 6 h, or on manual dispatch), and for any
-version not yet in the pool it builds the wrapper packages from
-[`packaging/`](packaging/), signs them, regenerates the apt + dnf metadata,
-and deploys to this repo's own GitHub Pages with the default `GITHUB_TOKEN`.
+Two workflows write to it:
 
-- It proceeds **only when the artifact is live on its registry**, so
-  publish-before-registry races are impossible by construction.
-- It is **idempotent** — versions already in the pool are skipped.
-- It is **inert until** `GPG_PRIVATE_KEY` + `GPG_PASSPHRASE` exist as repo
-  secrets.
+- **morie** — morie's own `release-debrpm.yml` builds the `morie`
+  packages on each morie release and pushes them here.
+- **rmorie, rmoriedata, rmoriebricklayer** — this repository's
+  [`publish.yml`](.github/workflows/publish.yml), every 6 hours and on
+  every push, builds the wrapper of each version r-universe serves that
+  the pool lacks ([`packaging/`](packaging/)).
 
-Generated at publish time (do not hand-edit): `apt/`, `rpm/`, `key.gpg`.
-Hand-maintained here: `index.html` (re-asserted on every publish), `README.md`,
-`AGENTS.md`, `CITATION.cff`, `packaging/`.
+Whichever of them ran last, `publish.yml` then rebuilds the apt and dnf
+metadata from every package in the pool ([`packaging/reindex.sh`](packaging/reindex.sh))
+and signs it, so a morie release never drops the R packages or older
+versions. It skips a run with nothing to do, re-signs any package the key
+does not verify (after a key change), and refuses to sign with any key but
+the one in `key.gpg`. Signing uses the `GPG_PRIVATE_KEY` and
+`GPG_PASSPHRASE` repository secrets; without them it publishes nothing.
 
-> Transitional note: morie's own `release-debrpm.yml` also still publishes
-> here on each `v*` tag; it can be decommissioned once this pipeline is
-> confirmed in production.
+Generated (do not hand-edit): `apt/`, `rpm/`. Hand-maintained: `key.gpg`,
+`index.html`, `README.md`, `CITATION.cff`, `packaging/`,
+`.github/workflows/`.
 
 ## The MORIE ecosystem
 
