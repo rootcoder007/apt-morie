@@ -808,6 +808,24 @@ Description: MORIE ecosystem R package rmorie (installs from r-universe).
 License: AGPL-3.0-or-later
 Vendor: none
 
+Package: rmorie
+Version: 1.5.2
+Architecture: all
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: r-base-core (>= 4.3.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev, rmoriebricklayer, rmoriedata
+Filename: pool/main/rmorie_1.5.2_all.deb
+Size: 1828
+MD5sum: 77e509fc9384963da8a19f9cd73ac2f7
+SHA1: c9e777a9f94e2371f7977afc29f4edaf84409ede
+SHA256: 894ae1415a28e9301f1eaaabfead029ef9401646f0578bf75920d279a58695be
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/rmorie
+Description: MORIE ecosystem R package rmorie (installs from r-universe).
+License: AGPL-3.0-or-later
+Vendor: none
+
 Package: rmoriebricklayer
 Version: 1.0.3
 Architecture: all
