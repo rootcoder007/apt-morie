@@ -9,7 +9,7 @@
 #
 # The package wraps the morie wheel installed via pip into /opt/morie/venv
 # and drops a thin launcher at /usr/local/bin/morie that execs the venv's
-# `python -m morie`.  This keeps system Python untouched.
+# `morie` console script.  This keeps system Python untouched.
 
 set -euo pipefail
 
@@ -24,11 +24,11 @@ cat > staging/deb/usr/local/bin/morie <<'LAUNCHER'
 #!/usr/bin/env bash
 # morie launcher: defers to the bundled virtualenv.
 VENV="/opt/morie/venv"
-if [ ! -x "${VENV}/bin/python" ]; then
+if [ ! -x "${VENV}/bin/morie" ]; then
   echo "morie: virtualenv at ${VENV} is missing or broken." >&2
   exit 1
 fi
-exec "${VENV}/bin/python" -m morie "$@"
+exec "${VENV}/bin/morie" "$@"
 LAUNCHER
 chmod +x staging/deb/usr/local/bin/morie
 

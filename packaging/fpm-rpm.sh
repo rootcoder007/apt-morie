@@ -22,11 +22,11 @@ mkdir -p staging/rpm/usr/local/bin
 cat > staging/rpm/usr/local/bin/morie <<'LAUNCHER'
 #!/usr/bin/env bash
 VENV="/opt/morie/venv"
-if [ ! -x "${VENV}/bin/python" ]; then
+if [ ! -x "${VENV}/bin/morie" ]; then
   echo "morie: virtualenv at ${VENV} is missing or broken." >&2
   exit 1
 fi
-exec "${VENV}/bin/python" -m morie "$@"
+exec "${VENV}/bin/morie" "$@"
 LAUNCHER
 chmod +x staging/rpm/usr/local/bin/morie
 

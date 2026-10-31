@@ -50,7 +50,11 @@ last=""
 for p in "$@"; do case "$p" in r*) last="$p" ;; esac; done
 if [ -n "$last" ]; then
   remove "$last"
-  if Rscript -e "quit(status = requireNamespace('$last', quietly = TRUE))"; then
+  # dnf also drops R once nothing needs it; then the package went with it
+  hash -r 2>/dev/null || true
+  if ! command -v Rscript >/dev/null 2>&1; then
+    echo "$last removed with its package (R removed too)"
+  elif Rscript -e "quit(status = requireNamespace('$last', quietly = TRUE))"; then
     echo "$last removed with its package"
   else
     echo "installtest: $last is still installed after removing its package" >&2
