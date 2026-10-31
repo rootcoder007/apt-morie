@@ -14,8 +14,34 @@ permissions:
   contents: read
 
 jobs:
-  install:
+  # publish pushes the new index, then GitHub Pages takes a minute or two to
+  # serve it; testing before then installs from the old index
+  live:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: wait until the site serves this commit's index
+        run: |
+          base=https://rootcoder007.github.io/apt-morie
+          for i in $(seq 1 60); do
+            ok=1
+            for f in apt/dists/stable/InRelease rpm/repodata/repomd.xml; do
+              want=$(sha256sum "$f" | cut -d' ' -f1)
+              got=$(curl -fsSL -H 'Cache-Control: no-cache' "$base/$f?t=$(date +%s)" | sha256sum | cut -d' ' -f1)
+              [ "$want" = "$got" ] || ok=0
+            done
+            if [ "$ok" = 1 ]; then echo "the site serves $(git rev-parse --short HEAD)"; exit 0; fi
+            sleep 15
+          done
+          echo "::error::the site still serves an older index after 15 minutes"
+          exit 1
+
+  install:
+    needs: live
     runs-on: ubuntu-latest
     timeout-minutes: 150
     strategy:
