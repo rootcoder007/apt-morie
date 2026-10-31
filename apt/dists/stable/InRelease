@@ -1,52 +1,47 @@
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
-Origin: rootcoder007
-Label: morie
-Suite: stable
-Codename: stable
 Architectures: amd64 arm64
+Codename: stable
 Components: main
-Description: morie apt repository
-Date: Sat, 31 Oct 2026 10:37:23 +0000
-Date: Sat, 31 Oct 2026 10:37:24 +0000
+Date: Sat, 31 Oct 2026 10:37:50 +0000
+Description: MORIE ecosystem apt repository
+Label: morie
+Origin: rootcoder007
+Suite: stable
 MD5Sum:
- f47e083645142f5546be4c4cfc174174              181 Release
- 3868e83963e0c577c6bf75b488bb6ec8              589 main/binary-amd64/Packages
- 411b40f70cce3a4df75fb650e6aed3d1              452 main/binary-amd64/Packages.gz
- 156b2f025e72aabec7891436d95fb807              589 main/binary-arm64/Packages
- 54023e9417e7b4ce0ef6361dbce90a3a              452 main/binary-arm64/Packages.gz
+ 497c9585693c251cff3543bc4bbb5faa            27922 main/binary-amd64/Packages
+ 2c7a36821c1c4a605c43418f3978f4b5             5208 main/binary-amd64/Packages.gz
+ 93c0c4acfabd96b6fe6551aec777bf22            27922 main/binary-arm64/Packages
+ 1013e5f2ef240d96b0bde55ea91d613a             5176 main/binary-arm64/Packages.gz
 SHA1:
- 0a26d07a0a1c2af44211c49adf75621b47643f48              181 Release
- e38e17cc828a7c2829acbb3daa517f03b227302c              589 main/binary-amd64/Packages
- 1d706eff80657948d7d5991c040c481745575653              452 main/binary-amd64/Packages.gz
- 7e41c21965d75db9dd5e3c06401bebf27631e5e4              589 main/binary-arm64/Packages
- 11d17482e2315a1a0fc0bdd7bac05d80337e993f              452 main/binary-arm64/Packages.gz
+ 8ffa97e57d230101bab2b8d8c153f7c785de10f3            27922 main/binary-amd64/Packages
+ 027f03014156d0d72eef6a5969854d248d193095             5208 main/binary-amd64/Packages.gz
+ e1be23939291679d5f59cfb4a557b771d7d7ff3a            27922 main/binary-arm64/Packages
+ 0de8a6dcfbcabc3f0428cb6564932f4675055c78             5176 main/binary-arm64/Packages.gz
 SHA256:
- 1dfe141e21e20a01a0363d3ea8de294cadc6ebdd2d64f348d3b2dc23075d406c              181 Release
- 001f83753f3b351841e775c01a718ed90047de47d85cb12f5171f1279fc10f66              589 main/binary-amd64/Packages
- 4d76127ef62e871c18ac86885ab49b18c11cb51744a88db9775b7b5cb489383e              452 main/binary-amd64/Packages.gz
- 721247a5fdfd36bf72db2d2ffd0da85ecbfd7cc1a724108e51c5819eace63e8a              589 main/binary-arm64/Packages
- d14788c48c655f5a4250ff6cfe081a9f0a8d28748158f9b323aaccda391e73a6              452 main/binary-arm64/Packages.gz
+ 39a4abe29d9ae209fde2aab17db9f9c6ddf5a5be2ef9497d92b898812d27fb48            27922 main/binary-amd64/Packages
+ 78b61cb4c0c654ef9a723dc3e4964b758a7c505a4b8af2e991cf44f6590fa778             5208 main/binary-amd64/Packages.gz
+ 5a0bd67782f2a31d9ecf68b401108fc51231918a8c416ffd92411359569c24ab            27922 main/binary-arm64/Packages
+ 7e76c22658ea562616d6d419851725c3ee2fc3f5ff136518fb67bd0a0288a9bc             5176 main/binary-arm64/Packages.gz
 SHA512:
- 979f0a9af8d2974a84529ffae1405906c5dc6694b3cb695f8138f6d2b70f10df90e599087a4fcc6ef8fda247d00c41ce05cc8975ebe22696f19ac4b27faff868              181 Release
- 7b2e549950ab3e899a13e98c1f3b9d75054bde82638f126cd98184869a6d5d9f097ddb0d5aecbf1e0058ccdc2e228a79b760649bf74987a90daba02debd17e08              589 main/binary-amd64/Packages
- 4eaef17091596379bd5e27c9556ee20a49396411bb09b587446b4a41218fea9c0db6dae347a4c6886ee9ebbcda69a6e1a1be1351fbfc7f9f20d8783e08da1902              452 main/binary-amd64/Packages.gz
- d05ccf2c2dc4e421090bd78919f4f456c3a3ae4edba079a31231308a5809f1a969089890bb9914c9b9e8018dadaf8cc73efcd46f0e238b7bfdc5de8352812709              589 main/binary-arm64/Packages
- 8e650692eaaf0ac2ea5f3d01a5b19d15eac28cfb84f03bc7438e1d1eab71d0b9fe04458690026cd4745bcc41518608d7679492e460f740c25e21d2251667db24              452 main/binary-arm64/Packages.gz
+ e31c23376339c05033269e61184e5d72591e3aee47a893f23cd196672c7698f20282d4e3cad03ffeedf1eae1dbe6073c003d0826a1e4315bb8146cce5209e34b            27922 main/binary-amd64/Packages
+ dfa98bdb459fdf33e85730e10dd07ca16c3538597940bd1250500f5880a8f428850c2a7c76e1a7a1bae2926857b91a635c6745adb9f3b1941c6cb531c65b49dd             5208 main/binary-amd64/Packages.gz
+ bb1dea83311e3bc481adbcb207ce546602190424d6486f4298f7010d4184d5085796b079d7b069f33b0132d6b9a4e1f6f2916f333f4f33cef6821df2d8ee6df9            27922 main/binary-arm64/Packages
+ 850528176087549968f8598c1916cdc08469ec65a801103f530bdbd248376aa8ccb3f989385cd710c353605a4e34297d0acc5a37a892e246a793d642cc1ccf9b             5176 main/binary-arm64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEE+C6o1lXZGHlXD6G+bl1oaS6dq1EFAmrlxOUACgkQbl1oaS6d
-q1G2eQ//TsRAEAod2aTEx4wzK42AltIOiT47aDcUx+OEHaKdFg/egTO5OD1VosVZ
-ICj7PIvAMO0HQgWruGI1lbs3cGYWaa7R2hcJVzKJCgkNAw7BlUzaZwIR+yGvupLH
-9YF2+4KhCWei5HcME5ZdDkYOI40wfNcvdRE4HtEeUrS+VVzJblcafrwI54mzEIkm
-0sBcoLJBqCdcmrF8LA6cAY++kSfSA/64pc5JwclfbOhxG7/PiFJLQuBEibd7ZxBv
-r8b9bM4/5JfwqYAJ3bJ4tHCQzmAADs27rW51jveSGamB+qJnVmBk+QpZbTqQJlWL
-2PodTBE9cqBsLgflsZRFGUCyIZ3jDbRv+l2etkun/AlfygUUsQYEHmYEiSo1ldXG
-wSAFAm4PXIRriU52tD9d5dSsuBM2F66obYJsgqGxrpg1WwZ2ihGvd851ZuOwSwjC
-fnVpRXqDPGhOLVDgb5CEGqYLsn/NMqw2dOzsAv+T5d2Al+1Sh+NdB/PwZtHmypSI
-odqXVuxZk87IkbSKYlOZSNGYKioWCrYgFgv4hv+5LvboBDwWarr+16q/DQ9EFOcJ
-qpC3k6ipbnP2BH4yfcz5v7lBzavu9wqHEGJaGWIZoh9dKGxAG3MkLI25UdSm4xkP
-95MhjiNC71R6cf0YSCq7QXjQHmv4mX8RpzxRvImrHT1L2YGI/Os=
-=VPa1
+iQIzBAEBCgAdFiEE+C6o1lXZGHlXD6G+bl1oaS6dq1EFAmrlxP8ACgkQbl1oaS6d
+q1FLGw//ZczJauYJc856w2Zz7nQ9zJ4dJZglM4z0gq2Y0acBXRMLEqh//WYZ5cz7
+iJ6peNDn5gkTmGH+tvANaFc555qLekRDtWoihXTm897+eQoTB8jLHyFdC4AzzCzI
+D33NizfJqYXlBniLRrz/STtFKWIvypZE2rim5fY7G+bkm5xbuO6C0G1D6H17a7ZM
+7Yhml/kep4brvrRu8qH7xOne+Wr+YI8ApaVW0FLwsBhMPXJU5vdpnwhBgrE/cuy4
+dhVSm/uF5hsSxcDAFzClG5oZZ6ycTvo95+yMzJt95RQIDfPFAToGzvyDVMi9gGVc
+twNZAGl/9BVE80jSdQyg0MJsF7OCAjOAxv6dfO0ZwMCexT8TZ0v5h9rOZ1qZeZs6
+HIG6g6+9ZxscMXEKvPfKfyQzGgt56iIaeZ5fSVgPbkEAnVtS//XY7/02hdWAdGTu
+FgQHuZDnDlm8fdIS4uvsRnoafytMLbDo5HFmB1Y9Eavsm4BRmitF3Ea06dQjEYy7
+lzfb/ZZEl1tJigUXA/QTXarBTZ+HZxGZnayrUIpaxOhxKgA0K432Q4uuj3NEIzHc
+okb928nHAP68hOeDMF/vlKPxZjMT7MHgNah4WVVW0hBSJpS8QQxRGeN5O+mozJpi
+E7G2KzbU+V1fHxzTMqyfWD3N7LITeg3vJY1tE+sqTwO/CvFwpRQ=
+=QECU
 -----END PGP SIGNATURE-----

@@ -1,4 +1,778 @@
 Package: morie
+Version: 0.9.5.13
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_0.9.5.13_amd64.deb
+Size: 1508
+MD5sum: bc3fe1699bc20f2e547a9f1472386f66
+SHA1: 1006e94f3b900d57dadef7165677d1ece04cb754
+SHA256: 73a6eac9f7a2564688bfdf90260ad0ed3548255592e9ff6ecd5dc521423b0d91
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 0.9.5.14
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_0.9.5.14_amd64.deb
+Size: 1508
+MD5sum: ffb0e9b3b74aa9e9fb57edb38471c68c
+SHA1: 6b48784daaeff994e9e8e8233683e93a924ebd71
+SHA256: 4d3101bac204479bd775d7798df00d85328f4af13b9838b769db3680a674ec90
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 0.9.5.15
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_0.9.5.15_amd64.deb
+Size: 1510
+MD5sum: 184ffff045bf2b4ff0f27446f2942635
+SHA1: 5f18f421580e0e6ac13d83b3b1d05c35c75cb5be
+SHA256: 2f163d14ea62efb7a54b6de9a660ae3d35a05a3c6396da77ecb94f1b2d77c214
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 0.9.5.16
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_0.9.5.16_amd64.deb
+Size: 1508
+MD5sum: a72b584eae5af6692326cd5bb9a074c9
+SHA1: 9f437e4afbc7b0f77310ef6c20ea3a5270b04fbd
+SHA256: 23d8883290f3b5a9978eea0aae18de7fe82658df6ffd76cb56cddeaf65d63562
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 0.9.6
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_0.9.6_amd64.deb
+Size: 1502
+MD5sum: 959e2da6107f54fa2b25c7327c263554
+SHA1: c5c36c9adcc22ec0b527342146ce14c16a0767c5
+SHA256: ff6199765a5ce238598a6455f4c89f146035110d223a13a8188477e3980e38fa
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 0.9.7
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_0.9.7_amd64.deb
+Size: 1504
+MD5sum: 36f049c98bce4f2ee632b1d99e3c19ee
+SHA1: 53decb4b924da1a8a5aac215fbab8714d3dc0c71
+SHA256: 9e4a62b766fa4e587087cad48c0ea14df5cfae2bdb238e6caa40efb06af0d289
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 0.9.8
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_0.9.8_amd64.deb
+Size: 1510
+MD5sum: b92f2cf8d015161e449f05e043310725
+SHA1: 8e60b0568c77179abe3ae9f675387d26a69176b8
+SHA256: 8489280c7345d1a6da937b7868fe958094f5ed5632224c178e3dec9b2039107b
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 0.9.9
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_0.9.9_amd64.deb
+Size: 1508
+MD5sum: a01b97ce8671fee2b42f263fd7f866ba
+SHA1: 38e08b8f81126449140eb9eaa5565262c42732eb
+SHA256: 0b7e724263b6b24d45bacd268b0f9ba9520d61bd18f9bba1fb7a1ccf7a7d9098
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.0.0
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.0.0_amd64.deb
+Size: 1500
+MD5sum: 72bf696314b219ef3246ffc23b931b0b
+SHA1: a964277a746e04f25e91bf2774ac8c629e8bd077
+SHA256: ca5b068302d5e57623bfb915df33cffb8bd2fd765ca4f91bdb1680309fa34bdf
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.0.1
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.0.1_amd64.deb
+Size: 1502
+MD5sum: 5a27a8844965db2c653911c61c185c82
+SHA1: 890639dcb94c609903c2667bec0e7c771a4e0862
+SHA256: f360c3561f364748801ae5d08f29dfbaa6715e7cf5a9187818dd13d3ab0409d0
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.0.2
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.0.2_amd64.deb
+Size: 1506
+MD5sum: 35eba52f3d78fd67283fae0f75befcc1
+SHA1: 4183a1a95c31b68784065dda955e7609c74304d6
+SHA256: 6b085deb46dbc6f359e7e55986fcf74ec0b195bd8bfee854a210f893279f0ee8
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.0.3
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.0.3_amd64.deb
+Size: 1510
+MD5sum: 922e7ed4f5896f0b9ce401ba4e9ed0d9
+SHA1: ca1571a430221f70eb83aa1a8bfd305a4f9f0e74
+SHA256: 202888c7f1ca5afd41264dc409394670c70d16daff630b5ddf75f536a6417353
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.0.5
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.0.5_amd64.deb
+Size: 1504
+MD5sum: 86aa2d3772374c959203cc651f2412be
+SHA1: 26a9a4d18a15963b2d7c904589624029263f8c89
+SHA256: 56b2fe9d002f323a2aed929a1a16273f5536e663f118cf60dc1c0ca4729ab3f4
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.1.0
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.1.0_amd64.deb
+Size: 1506
+MD5sum: c1ee2730f6a6d268efa3efc952008369
+SHA1: 692ae19478ce0f69fd3dc60cf18f4781357bec8a
+SHA256: 6cddbee4b9d08aa2d7af9ea8957dc9ee23a84189db00bc1007f6402ce77631f8
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.1.1
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.1.1_amd64.deb
+Size: 1510
+MD5sum: ec0cf6745a9dfb4308650f1297c8ade0
+SHA1: eb3ccb170b05cc878aff7ba27cf22462f0050a6c
+SHA256: 135a759128a01ba65310ea7e990a64d276d08550e97e960c60473a157eea596e
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.1.2
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.1.2_amd64.deb
+Size: 1504
+MD5sum: 22aa829d2ed13b121ea934917524df43
+SHA1: 5e1a91e861f97479f986248f01502930ac14c35a
+SHA256: 2da8861e9d74a1a240480f0572b83f8c70ad8fb134f6257d2fa77ed7924b68e1
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.1.3
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.1.3_amd64.deb
+Size: 1508
+MD5sum: aa0209222b3609a188de3e5d3f500f52
+SHA1: d1c57d3ecd681d4e6622c5a3278410a4e8be6f71
+SHA256: f7159818c7bbb0f2ffc1306df5034966f321919447d95d9dbf868563485fde47
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.1.4
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.1.4_amd64.deb
+Size: 1510
+MD5sum: 83ae42fe29bd7b8f827bb0ebab95d75b
+SHA1: b8518afa6215a015f85eb33471cfec8e9ff8b473
+SHA256: 4680830522fd3a4c0a5edffd6fb47c722491c335da03a682b8cf58e9bd2ec845
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.1.5
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.1.5_amd64.deb
+Size: 1514
+MD5sum: fcec9218dedc22b6b9ed8d193ff64fd5
+SHA1: a2b4dac0f852f351728348f03a81962ebca7b8a6
+SHA256: d36729eeb304ba25c5d0ace66ea4e916300045e8b8afe2ad3b10e4397c521e80
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.1.6
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.1.6_amd64.deb
+Size: 1510
+MD5sum: d36d980576a3ba2c988838fd17144cf2
+SHA1: 9730c3b58f352ea0fc6b49cd40e15d5109b1998d
+SHA256: 3faf2d7b0b296d413d9fae004f07207af14b3f5e306753e57ae485fa24fd8234
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.1.7
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.1.7_amd64.deb
+Size: 1498
+MD5sum: 0c174c13bf12c747664fc8649619035e
+SHA1: 49ba143215fd56f4e9ab32c919f5536cf15c4bf8
+SHA256: 554e213e9b809c485fa707c6cd6186b01d98cddc0915524dc7224574f85d71bf
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.2.1
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.2.1_amd64.deb
+Size: 1506
+MD5sum: 8f3f41373e7a4ca281f8e74c8d7a6bb9
+SHA1: 7241c0fe792cc580b74bba34806b047781054059
+SHA256: aaf770de04b0f5a55d138fb990620430882b7378c22029209c6382ef65205b53
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.2.2
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.2.2_amd64.deb
+Size: 1506
+MD5sum: 873239588154639ffd230cdd6d51b5f6
+SHA1: e85fa07e40e8e245f323f04b82d325c3c859854c
+SHA256: 7eeac4923e38e518ded56ead4e7d2375ffdbcae59a409500bc8f489823f14413
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.2.3
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.2.3_amd64.deb
+Size: 1504
+MD5sum: df2db9dd04d1d6c866e841636039778b
+SHA1: 063e0bbb8199b3d8e9e221f6ca12d9480b14d096
+SHA256: 73315b8b2fc60ccbab3cff7d01797f9cc2b1745b8897ad1695493d8276e971d5
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.2.4
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.2.4_amd64.deb
+Size: 1502
+MD5sum: fd28ddc3759d892edf9ed107656cf78a
+SHA1: 64d23a31f66e3b4dda908dac50c516431d975382
+SHA256: d1a8a3074ba8b8ead11ef13ba3946e36426ba896f51eda9ae53965fc56aef90d
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.2.5
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.2.5_amd64.deb
+Size: 1504
+MD5sum: 0ad7b29fb92f17976e1c06efd799a986
+SHA1: 0698488e8e26cc5cf1036fc5db7c55f5bce04355
+SHA256: b82b9632d42eaf762e3efb7f5a52fa1390bd7e7d9d28a9999782a6c0ecb9ba97
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.3.0
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.3.0_amd64.deb
+Size: 1500
+MD5sum: 209b51acaef4e639cc5f4f29d5cb78cb
+SHA1: ed4dbf136103f30d7af7226a2378e15403930d23
+SHA256: 3dae4a882cc3c9e9a8f7722c2419effdb8e3f42eb6eb32db3d01c37fdde6231f
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.3.1
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.3.1_amd64.deb
+Size: 1506
+MD5sum: 4ca8d8e3f11036152a5a3aa94716786b
+SHA1: 3c050f81fbe362d4cc427fdfebbd28f79dc95d0f
+SHA256: 382a3f5545c338fdcca2add9b517cd6412cb7e9524fd1bc27f20e8378e70f6d5
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.3.2
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.3.2_amd64.deb
+Size: 1508
+MD5sum: e772168bbcfbd7901636c4ab6d00f30f
+SHA1: 9bc3646a4fcf54a210525a0c7cbcf3cb839e1abb
+SHA256: e83ac2c56ec64b71a6e27cab4b2f39bd33ebe3b9f6d068380a78faa5ba3a7143
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.3.3
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.3.3_amd64.deb
+Size: 1508
+MD5sum: f380ae2117060021e48799cfad6e8e93
+SHA1: c5cb0d722bcafc820b55767c59e03c4136f4e601
+SHA256: 727061a1f738b23770c7d60c05275ea60dbc39d9fda782a8249dc83bb54243cf
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.3.4
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.3.4_amd64.deb
+Size: 1510
+MD5sum: ba033610b4c0fd6de27b8a6ee8881fee
+SHA1: 3a94817885c266b472f240ba19bda91a2d832877
+SHA256: a2cea2bf060620de751b0767e2d1d2721bfd562ad733d1af77529d38376da81b
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.3.5
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.3.5_amd64.deb
+Size: 1514
+MD5sum: f42ceff66b3543fbf3b72c0cde9e8a02
+SHA1: 865d399ba0b9af90d8856521b152f96717ab9f59
+SHA256: e4fb24e141d58fa5953b78e68529fb2ae0721e447d931d87f6b020787c88ccbe
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.3.6
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.3.6_amd64.deb
+Size: 1512
+MD5sum: b3a1ed633b1511d9195938fc3a9c8f9e
+SHA1: f6dca710a5dc44cc8418e6dc3c66d82631e63f02
+SHA256: 5fcc267bd739a8debaaa254e178a8a0874bb6d228f8c4f29e0cd7a3783481c42
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.3.8
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.3.8_amd64.deb
+Size: 1506
+MD5sum: 17c0fb5cfffddaf2fb4debe3b0fd289a
+SHA1: 553b62d06844cd93f463e9fb1aa8f9aa20d9f374
+SHA256: 0840a6b1b27a9ba3a6e662fc60398d2b72a55449b12641df5dc75b6f9c8f0e8f
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.3.9
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.3.9_amd64.deb
+Size: 1504
+MD5sum: 915c787205ff61ec304242d380b93ea9
+SHA1: f28b9425593a45c0d0f1ab13a8c3b261414be24d
+SHA256: 42077178e148e73eefd25d1767059ce9178d2f13e9d0a68f7fe70f36fefa5ab0
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.4.0
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.4.0_amd64.deb
+Size: 1508
+MD5sum: e2ddfe477a012525781264cc4c4ad1b3
+SHA1: b39d7eadd95d2e17550a29d9f656f91bf9a46e24
+SHA256: f2dd22574c1f4b28505e3fdebcfd11899a259bd38b7ffb54fe0b25afd6540844
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.4.1
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.4.1_amd64.deb
+Size: 1514
+MD5sum: 10b28939baeb5b692f7b114f3c22d74b
+SHA1: a94ce3b0ff8c47cfab5860cbf80230f5e4ae6a66
+SHA256: b7a336021dbb220cc2c88dc4f1eb5e8fe98860f938c09e15cf894e44ec046e4a
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.4.2
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.4.2_amd64.deb
+Size: 1504
+MD5sum: 172d20589d153ccd2f02e2c777909e29
+SHA1: 513d4c5c9c42fa5680f3c14831c7906149ed6262
+SHA256: 7ef354a062f9736c01d254fcddcca0c29f6af8ec3a599a953f78aa29db7e2958
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.4.3
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.4.3_amd64.deb
+Size: 1512
+MD5sum: de06582832cefa76fde46249e41df4e9
+SHA1: 1b957de345dab13e1c097d6a96dd9637848c94d4
+SHA256: 7f3e39fb49a8c6637fb595517a8f27330564896ae2cfea8b99e51d932aa015c9
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.4.4
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.4.4_amd64.deb
+Size: 1502
+MD5sum: 781197c0f4d8b35ea8b8382a5faa2e5a
+SHA1: 00ad14c65c5477d8953a2fa0c69a2d76db493cf4
+SHA256: 277a4f28a1373f1831c3ddaac6279c725451471a3e5b45a1f81c33bebe758c5f
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.4.5
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.4.5_amd64.deb
+Size: 1510
+MD5sum: 90d6c0703d293fbb8bdb086543f2cb6a
+SHA1: 7bb48e353e84ae63ac9ca879cd89693ef2242a5c
+SHA256: ef94313724b878269a7b0b6222d564af4c2c285d420d0105b97d3ab1064ba7d9
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.5.0
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.5.0_amd64.deb
+Size: 1504
+MD5sum: 7577990cc5ca93542739a9354820ed73
+SHA1: d952b6d7fb36c3fad53a3f46af0ebe4fdfbcceb0
+SHA256: 0958f2e2a6a7bd9a647b42065f22506c94bd5613c2dfe80cedc53d4f51ad44a0
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
+Version: 1.5.1
+Architecture: amd64
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: python3 (>= 3.10), python3-venv, python3-pip
+Filename: pool/main/morie_1.5.1_amd64.deb
+Size: 1504
+MD5sum: 521a917704b2ff3309e59776a3377d24
+SHA1: 6173bb15a174f7528f377dec59e8d773029b4243
+SHA256: 0533e106a2b6688811f1bf5e997f00e8b21c2a5b1388aff9a84d7f534577a8f3
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/morie
+Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: morie
 Version: 1.5.2
 Architecture: amd64
 Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
@@ -13,6 +787,60 @@ Section: default
 Priority: optional
 Homepage: https://github.com/rootcoder007/morie
 Description: Multi-domain Open Research and Inferential Estimation (morie).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: rmorie
+Version: 1.5.1
+Architecture: all
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: r-base-core (>= 4.3.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev, rmoriebricklayer, rmoriedata
+Filename: pool/main/rmorie_1.5.1_all.deb
+Size: 1830
+MD5sum: ddafecd4cec1a4a87a6e32e0f451be3a
+SHA1: a32a2d28a3d710c34f53dde2f1d9fee782f8e7cc
+SHA256: e9c5b735daac4ef6247ad88b0702b983fd87105d65bc440f9eec6a7f0d9fbc2f
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/rmorie
+Description: MORIE ecosystem R package rmorie (installs from r-universe).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: rmoriebricklayer
+Version: 1.0.3
+Architecture: all
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: r-base-core (>= 4.1.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev
+Filename: pool/main/rmoriebricklayer_1.0.3_all.deb
+Size: 1846
+MD5sum: b1ce00a64b4bab05f20789c7527d548a
+SHA1: 6552bd00f73e8ce98062522b17f654865767d62a
+SHA256: 2b25b37ae792ed499364fc8d048ca577071018b79736d2a37f7a9bdad41aeda2
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/rmorie-bricklayer
+Description: MORIE ecosystem R package rmoriebricklayer (installs from r-universe).
+License: AGPL-3.0-only
+Vendor: none
+
+Package: rmoriedata
+Version: 0.4.1
+Architecture: all
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: r-base-core (>= 4.3.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev, rmoriebricklayer
+Filename: pool/main/rmoriedata_0.4.1_all.deb
+Size: 1842
+MD5sum: 917fd88f09c6aee0a7be64b338e4c543
+SHA1: 03c844a4598a290f134362360620e7287806f16b
+SHA256: 6b19daeec7b667718a7f8918436bf10881af78f7f7661b953078238a10a783ba
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/rmoriedata
+Description: MORIE ecosystem R package rmoriedata (installs from r-universe).
 License: AGPL-3.0-or-later
 Vendor: none
 
