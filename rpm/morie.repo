@@ -3,5 +3,4 @@ name=morie (rootcoder007)
 baseurl=https://rootcoder007.github.io/apt-morie/rpm
 enabled=1
 gpgcheck=1
-repo_gpgcheck=1
 gpgkey=https://rootcoder007.github.io/apt-morie/key.gpg
