@@ -1,51 +1,370 @@
-<!doctype html><meta charset="utf-8">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>morie — apt / dnf repository</title>
+<meta name="color-scheme" content="light dark">
+<title>MORIE packages for apt and dnf</title>
+<meta name="description" content="Signed apt and dnf repository for morie, rmorie, rmoriedata and rmoriebricklayer on Debian, Ubuntu, Fedora and RHEL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  body{font:16px/1.6 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem;color:#1a1a1a;background:#fafafa}
-  h1{font-size:1.5rem} h2{font-size:1.1rem;margin-top:1.6rem}
-  pre{background:#282828;color:#ebdbb2;padding:.8rem 1rem;border-radius:6px;overflow-x:auto;font-size:.85rem}
-  code{font-family:ui-monospace,monospace}
-  a{color:#0b57d0} li{margin:.2rem 0}
-  @media (prefers-color-scheme: dark){body{color:#e8e8e8;background:#1c1c1c}a{color:#8ab4f8}}
+:root{
+  --bg:#ffffff; --fg:#14141a; --fg-2:#45454f; --fg-3:#6b6b76; --line:#e4e4ea; --surface:#ffffff; --surface-2:#f6f6f9;
+  --accent:oklch(54% .23 292); --accent-ink:#ffffff; --inverse:#16161c; --inverse-ink:#ffffff;
+  --blue:oklch(60% .24 240); --yellow:#ffe484; --violet:oklch(56% .24 300); --pink:oklch(60% .22 4);
+  --badge:#fff4c2; --badge-ink:#7a5a00; --badge-line:#f3df8a;
+  --sans:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --shadow:0 1px 2px #00000014,0 1px 1px #0000000a;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f0f13; --fg:#ececf1; --fg-2:#b9b9c4; --fg-3:#8b8b97; --line:#26262e; --surface:#16161c; --surface-2:#1b1b22;
+    --accent:oklch(68% .19 292); --accent-ink:#130b26; --inverse:#ececf1; --inverse-ink:#14141a;
+    --badge:#2b2510; --badge-ink:#f2d779; --badge-line:#4a3f17;
+    --shadow:0 1px 2px #00000066;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f0f13; --fg:#ececf1; --fg-2:#b9b9c4; --fg-3:#8b8b97; --line:#26262e; --surface:#16161c; --surface-2:#1b1b22;
+  --accent:oklch(68% .19 292); --accent-ink:#130b26; --inverse:#ececf1; --inverse-ink:#14141a;
+  --badge:#2b2510; --badge-ink:#f2d779; --badge-line:#4a3f17;
+  --shadow:0 1px 2px #00000066;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--sans)}
+a{color:var(--accent);text-underline-offset:.2em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+code{font-family:var(--mono);font-size:.9em}
+.container{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+
+.navbar{position:sticky;top:0;z-index:10;background:color-mix(in oklch,var(--bg) 88%,transparent);backdrop-filter:saturate(1.6) blur(10px);-webkit-backdrop-filter:saturate(1.6) blur(10px);border-bottom:1px solid var(--line)}
+.navbar .container{display:flex;align-items:center;gap:1.5rem;height:4rem}
+.brand{display:flex;align-items:center;gap:.6rem;color:var(--fg);text-decoration:none;font-weight:600}
+.brand-mark{width:2.25rem;height:2.25rem;border-radius:.6rem;background:var(--accent);display:grid;place-items:center;box-shadow:inset 0 1px 0 #ffffff33,0 1px 2px #0000002e}
+.brand-mark svg{width:1.25rem;height:1.25rem}
+.navlinks{display:flex;gap:1.25rem;font-size:.95rem}
+.navlinks a{color:var(--fg-2);text-decoration:none}
+.navlinks a:hover{color:var(--fg)}
+.navright{margin-left:auto;display:flex;align-items:center;gap:.4rem}
+.iconbtn{display:grid;place-items:center;width:2.25rem;height:2.25rem;border-radius:.5rem;border:0;background:transparent;color:var(--fg-2);cursor:pointer}
+.iconbtn:hover{background:var(--surface-2);color:var(--fg)}
+.iconbtn svg{width:1.15rem;height:1.15rem}
+
+.masthead{
+  background-image:
+    linear-gradient(180deg,color-mix(in oklch,var(--bg) 1%,transparent),var(--bg) 85%),
+    radial-gradient(ellipse at top left,color-mix(in oklch,var(--blue) 50%,transparent),transparent 50%),
+    radial-gradient(ellipse at top right,color-mix(in oklch,var(--yellow) 50%,transparent),transparent 50%),
+    radial-gradient(ellipse at center right,color-mix(in oklch,var(--violet) 50%,transparent),transparent 50%),
+    radial-gradient(ellipse at center left,color-mix(in oklch,var(--pink) 50%,transparent),transparent 50%);
+  min-height:calc(100vh - 4rem);display:grid;place-items:center;padding:4rem 0 5rem;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem 1rem;border-radius:999px;background:var(--badge);color:var(--badge-ink);border:1px solid var(--badge-line);font-size:.95rem;text-decoration:none}
+.badge:hover{filter:brightness(.98)}
+h1{font-size:clamp(2.25rem,1.75rem + 2.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;font-weight:700;margin:1.4rem auto .9rem;max-width:22ch;text-wrap:balance}
+.lead{font-size:clamp(1.05rem,1rem + .3vw,1.25rem);color:var(--fg-2);max-width:46rem;margin:0 auto;text-wrap:pretty}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin:2rem 0 1.4rem}
+.cmdline{display:flex;align-items:center;gap:1rem;min-width:min(100%,22rem);max-width:100%;background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:.6rem .6rem .6rem 1.1rem;box-shadow:var(--shadow);text-align:left}
+.cmdline code{font:500 1rem var(--mono);white-space:nowrap;overflow-x:auto;flex:1}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.15rem;border-radius:.75rem;font:500 1.05rem var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer;box-shadow:0 1px 2px #00000026,inset 0 1px 0 #ffffff1a;background-image:linear-gradient(#ffffff20,#00000013)}
+.btn svg{width:1.1rem;height:1.1rem}
+.btn-inverse{background-color:var(--inverse);color:var(--inverse-ink)}
+.btn-accent{background-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{filter:brightness(1.07)}
+.meta{color:var(--fg-2);font-size:.98rem;margin:0}
+.meta a{color:var(--fg-2)}
+.meta .sep{margin:0 .45rem;color:var(--fg-3)}
+
+.copy{flex:none;display:grid;place-items:center;width:2.1rem;height:2.1rem;border-radius:.5rem;border:0;background:transparent;color:var(--fg-3);cursor:pointer}
+.copy:hover{background:var(--surface-2);color:var(--fg)}
+.copy svg{width:1.1rem;height:1.1rem}
+.copy[data-done]{color:var(--accent)}
+
+section{padding:4.5rem 0;border-top:1px solid var(--line)}
+.kicker{font:500 .8rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 .6rem}
+h2{font-size:clamp(1.75rem,1.4rem + 1.5vw,2.4rem);line-height:1.15;letter-spacing:-.025em;font-weight:700;margin:0 0 .8rem;text-wrap:balance}
+.sub{color:var(--fg-2);max-width:44rem;margin:0 0 2rem}
+.seg{display:inline-flex;gap:.25rem;padding:.25rem;background:var(--surface-2);border:1px solid var(--line);border-radius:.75rem;margin:0 0 1.5rem;flex-wrap:wrap}
+.seg button{appearance:none;border:0;background:transparent;color:var(--fg-2);font:500 .95rem var(--sans);padding:.45rem .9rem;border-radius:.55rem;cursor:pointer}
+.seg button[aria-selected="true"]{background:var(--surface);color:var(--fg);box-shadow:var(--shadow)}
+.steps{display:grid;gap:1.75rem;grid-template-columns:minmax(0,1fr)}
+.stephead{display:flex;align-items:baseline;gap:.6rem;font-weight:600;margin:0 0 .6rem}
+.stephead span{font:500 .8rem var(--mono);color:var(--fg-3)}
+.code{position:relative;min-width:0;background:var(--surface-2);border:1px solid var(--line);border-radius:.75rem}
+.code pre{margin:0;padding:1rem 3.4rem 1rem 1.1rem;overflow-x:auto;font:400 .9rem/1.75 var(--mono);color:var(--fg)}
+.code .c{color:var(--fg-3)}
+.code .copy{position:absolute;top:.55rem;right:.55rem;background:var(--surface-2)}
+.panel[hidden]{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 .75rem}
+.chip{display:inline-flex;align-items:center;gap:.45rem;font:500 .88rem var(--mono);padding:.35rem .75rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);cursor:pointer;user-select:none;color:var(--fg-2)}
+.chip input{accent-color:var(--accent);margin:0}
+.chip:has(input:checked){border-color:color-mix(in oklch,var(--accent) 55%,transparent);color:var(--fg);background:color-mix(in oklch,var(--accent) 8%,var(--surface))}
+.hint{color:var(--fg-3);font-size:.92rem;margin:.6rem 0 0}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.4rem;display:grid;gap:.5rem;align-content:start;box-shadow:var(--shadow)}
+.card h3{margin:0;font:600 1.05rem var(--mono)}
+.card h3 a{color:var(--fg);text-decoration:none}
+.card h3 a:hover{color:var(--accent)}
+.card p{margin:0;color:var(--fg-2);font-size:.95rem}
+.tag{justify-self:start;font:500 .78rem var(--mono);color:var(--fg-3);background:var(--surface-2);border:1px solid var(--line);border-radius:.5rem;padding:.2rem .6rem;margin-top:.3rem;line-height:1.5}
+.split{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));align-items:start}
+.split > div{min-width:0}
+.fp{font:500 1.05rem/1.6 var(--mono);word-spacing:.25em;background:var(--surface-2);border:1px solid var(--line);border-radius:.75rem;padding:1rem 1.1rem;overflow-x:auto;margin:0 0 .75rem}
+.files{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:1rem;overflow:hidden;background:var(--surface)}
+.files li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem 1rem;padding:.9rem 1.1rem;border-top:1px solid var(--line)}
+.files li:first-child{border-top:0}
+.files a{font:500 .92rem var(--mono)}
+.files span{color:var(--fg-3);font-size:.92rem}
+footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--fg-3);font-size:.92rem}
+footer .container{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;align-items:center}
+footer a{color:var(--fg-2);text-decoration:none}
+footer a:hover{color:var(--fg)}
+@media (max-width:48rem){.navlinks{display:none}.masthead{min-height:auto;padding:3rem 0 4rem}.cmdline{width:100%}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
-<h1>morie &mdash; signed apt / dnf repository</h1>
-<p><a href="https://github.com/rootcoder007/morie">morie</a> is a multi-domain
-scientific computing toolkit (Python + R), AGPL-3.0-or-later. This site serves
-its signed <code>.deb</code> and <code>.rpm</code> packages.</p>
-<p><strong>Signing key changed on 30 October 2026</strong> to
-<code>F82E A8D6 55D9 1879 570F A1BE 6E5D 6869 2E9D AB51</code>. If you added
-this repository before then, fetch the key again: the first two apt commands
-below, or <code>sudo rpm --import https://rootcoder007.github.io/apt-morie/key.gpg</code>.</p>
-<h2>Debian / Ubuntu (apt)</h2>
-<pre>sudo install -d -m 0755 /etc/apt/keyrings
-curl -fsSL https://rootcoder007.github.io/apt-morie/key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/rootcoder007.gpg
-echo "deb [signed-by=/etc/apt/keyrings/rootcoder007.gpg] https://rootcoder007.github.io/apt-morie/apt stable main" | sudo tee /etc/apt/sources.list.d/morie.list
-sudo apt update &amp;&amp; sudo apt install morie</pre>
-<h2>Fedora 41+ (dnf5)</h2>
-<pre>sudo dnf config-manager addrepo --from-repofile=https://rootcoder007.github.io/apt-morie/rpm/morie.repo
-sudo dnf install morie</pre>
-<h2>Fedora &le; 40 / RHEL (dnf4)</h2>
-<pre>sudo dnf config-manager --add-repo https://rootcoder007.github.io/apt-morie/rpm/morie.repo
-sudo dnf install morie</pre>
-<h2>R packages (same repository)</h2>
-<p>The ecosystem's R packages ship here too: installing one installs that
-package from <a href="https://rootcoder007.r-universe.dev">r-universe</a> and
-compiles it on your machine. rmoriebricklayer needs R 4.1 or later (Debian 12+,
-Ubuntu 22.04+); rmoriedata and rmorie need R 4.3 or later (Debian 13+, Ubuntu
-24.04+). Fedora and EPEL 9/10 have both.</p>
-<pre># after adding the repository above:
-sudo apt install rmorie rmoriedata rmoriebricklayer   # Debian / Ubuntu
-sudo dnf install rmorie rmoriedata rmoriebricklayer   # Fedora / RHEL</pre>
-<h2>Contents</h2>
-<ul>
-  <li><a href="apt/">apt/</a> &mdash; Debian / Ubuntu pool + signed Release (amd64, arm64)</li>
-  <li><a href="rpm/">rpm/</a> &mdash; Fedora / RHEL packages + repodata (x86_64, aarch64)</li>
-  <li><a href="key.gpg">key.gpg</a> &mdash; GPG signing key (F82E A8D6 &hellip; 2E9D AB51)</li>
-</ul>
-<h2>Ecosystem</h2>
-<ul>
-  <li><a href="https://pypi.org/project/morie/">PyPI</a> &middot; <a href="https://github.com/rootcoder007/homebrew-morie">Homebrew tap</a> &middot; <a href="https://github.com/rootcoder007/apt-morie">this repo</a></li>
-  <li><a href="https://rootcoder007.r-universe.dev">r-universe</a>: rmorie, rmoriedata, rmoriebricklayer</li>
-  <li><a href="https://github.com/rootcoder007/apt-morie#readme">Full install + verification docs</a></li>
-</ul>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <a class="brand" href="#top" aria-label="apt-morie, top of the page">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 18V6l7 6.5L19 6v12"/></svg></span>
+      apt-morie
+    </a>
+    <nav class="navlinks" aria-label="Sections">
+      <a href="#setup">Set up</a>
+      <a href="#packages">Packages</a>
+      <a href="#verify">Verify</a>
+      <a href="https://github.com/rootcoder007/apt-morie#readme">Docs</a>
+    </nav>
+    <div class="navright">
+      <a class="iconbtn" href="https://github.com/rootcoder007/apt-morie" aria-label="GitHub repository">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+      </a>
+      <button class="iconbtn" id="theme" type="button" aria-label="Switch between light and dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="masthead">
+    <div class="container">
+      <a class="badge" href="#verify">The signing key changed on 30 October 2026 <span aria-hidden="true">→</span></a>
+      <h1>The MORIE packages, signed for apt and dnf</h1>
+      <p class="lead">One repository for the morie toolkit and command-line tool and the R packages rmorie,
+      rmoriedata and rmoriebricklayer, on Debian, Ubuntu, Fedora and RHEL, for amd64 and arm64.</p>
+      <div class="actions">
+        <div class="cmdline"><code id="hero-cmd">sudo apt install morie</code><button class="copy" type="button" aria-label="Copy"></button></div>
+        <button class="btn btn-inverse" id="hero-os" type="button" aria-label="Switch system">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m7 9 3 2.5L7 14M12 14h5"/></svg>
+          <span id="hero-os-label">Debian / Ubuntu</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 9 4-4 4 4M8 15l4 4 4-4"/></svg>
+        </button>
+        <a class="btn btn-accent" href="#setup">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2Z"/><path d="M4 17a2 2 0 0 1 2-2h12"/></svg>
+          Set up the repository
+        </a>
+      </div>
+      <p class="meta">Add the repository first <span class="sep">·</span> <a href="#packages">What&rsquo;s in it</a> <span class="sep">·</span> <a href="https://github.com/rootcoder007/apt-morie">Source</a></p>
+    </div>
+  </div>
+
+  <section id="setup">
+    <div class="container">
+      <p class="kicker">Set up</p>
+      <h2>Add the repository, then install</h2>
+      <p class="sub">The repository and every package in it are signed. Add the key and the source once; after
+      that, new versions arrive with your normal system updates.</p>
+
+      <div class="seg" role="tablist" aria-label="Your system">
+        <button role="tab" id="t-apt" aria-controls="p-apt" aria-selected="true">Debian / Ubuntu</button>
+        <button role="tab" id="t-dnf" aria-controls="p-dnf" aria-selected="false" tabindex="-1">Fedora</button>
+        <button role="tab" id="t-rhel" aria-controls="p-rhel" aria-selected="false" tabindex="-1">RHEL 8–10</button>
+      </div>
+
+      <div class="steps">
+        <div>
+          <p class="stephead"><span>01</span>Add the repository</p>
+          <div class="panel" id="p-apt" role="tabpanel" aria-labelledby="t-apt">
+            <div class="code"><pre><code>sudo install -d -m 0755 /etc/apt/keyrings
+curl -fsSL https://rootcoder007.github.io/apt-morie/key.gpg \
+  | sudo gpg --dearmor -o /etc/apt/keyrings/rootcoder007.gpg
+echo "deb [signed-by=/etc/apt/keyrings/rootcoder007.gpg] https://rootcoder007.github.io/apt-morie/apt stable main" \
+  | sudo tee /etc/apt/sources.list.d/morie.list
+sudo apt update</code></pre></div>
+          </div>
+          <div class="panel" id="p-dnf" role="tabpanel" aria-labelledby="t-dnf" hidden>
+            <div class="code"><pre><code>sudo dnf config-manager addrepo \
+  --from-repofile=https://rootcoder007.github.io/apt-morie/rpm/morie.repo</code></pre></div>
+            <p class="hint">Fedora 40 and older: <code>sudo dnf config-manager --add-repo https://rootcoder007.github.io/apt-morie/rpm/morie.repo</code></p>
+          </div>
+          <div class="panel" id="p-rhel" role="tabpanel" aria-labelledby="t-rhel" hidden>
+            <div class="code"><pre><code>sudo dnf install epel-release              <span class="c"># the R packages need EPEL and CRB</span>
+sudo dnf config-manager --set-enabled crb
+sudo dnf config-manager --add-repo \
+  https://rootcoder007.github.io/apt-morie/rpm/morie.repo</code></pre></div>
+          </div>
+        </div>
+        <div>
+          <p class="stephead"><span>02</span>Install what you need</p>
+          <div class="chips" role="group" aria-label="Packages to install">
+            <label class="chip"><input type="checkbox" value="morie" checked> morie</label>
+            <label class="chip"><input type="checkbox" value="rmorie"> rmorie</label>
+            <label class="chip"><input type="checkbox" value="rmoriedata"> rmoriedata</label>
+            <label class="chip"><input type="checkbox" value="rmoriebricklayer"> rmoriebricklayer</label>
+          </div>
+          <div class="code"><pre><code id="install">sudo apt install morie</code></pre></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="packages">
+    <div class="container">
+      <p class="kicker">Packages</p>
+      <h2>What&rsquo;s in the repository</h2>
+      <p class="sub">The R packages install the package of the same name from
+      <a href="https://rootcoder007.r-universe.dev">r-universe</a> (its dependencies from CRAN) and compile it on
+      your machine, so the first install takes a few minutes. Removing the package removes it from R again.</p>
+      <div class="grid">
+        <article class="card">
+          <h3><a href="https://github.com/rootcoder007/morie">morie</a></h3>
+          <p>The Python toolkit and the <code>morie</code> command, installed from PyPI into its own environment under <code>/opt/morie</code>.</p>
+          <span class="tag">Python 3 · amd64, arm64</span>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/rootcoder007/rmorie-bricklayer">rmoriebricklayer</a></h3>
+          <p>Reproducible data capsules: provenance, signing and drift checks for the tables behind a result.</p>
+          <span class="tag">R 4.1+ · Debian 12+, Ubuntu 22.04+</span>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/rootcoder007/rmoriedata">rmoriedata</a></h3>
+          <p>Access to the hosted tables, with privacy checks on what is released.</p>
+          <span class="tag">R 4.3+ · Debian 13+, Ubuntu 24.04+</span>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/rootcoder007/rmorie">rmorie</a></h3>
+          <p>The R toolkit: the analyses and methods of the MORIE ecosystem.</p>
+          <span class="tag">R 4.3+ · Debian 13+, Ubuntu 24.04+</span>
+        </article>
+      </div>
+      <p class="hint">Fedora and EPEL 9/10 carry the R versions all four need.</p>
+    </div>
+  </section>
+
+  <section id="verify">
+    <div class="container split">
+      <div>
+        <p class="kicker">Verify</p>
+        <h2>One signing key</h2>
+        <p class="sub" style="margin-bottom:1.25rem">Everything here is signed by &ldquo;MORIE packaging&rdquo;. The key changed
+        on 30 October 2026: if you added the repository before then, run step 01 again (on dnf,
+        <code>sudo rpm --import https://rootcoder007.github.io/apt-morie/key.gpg</code>). Until you do,
+        <code>apt update</code> and <code>dnf</code> refuse the repository.</p>
+        <div class="fp">F82E A8D6 55D9 1879 570F  A1BE 6E5D 6869 2E9D AB51</div>
+        <div class="code"><pre><code>curl -fsSL https://rootcoder007.github.io/apt-morie/key.gpg | gpg --show-keys</code></pre></div>
+      </div>
+      <div>
+        <p class="kicker">Files</p>
+        <h2>Repository files</h2>
+        <ul class="files">
+          <li><a href="key.gpg">key.gpg</a><span>public signing key</span></li>
+          <li><a href="apt/dists/stable/InRelease">apt/dists/stable/InRelease</a><span>signed apt index</span></li>
+          <li><a href="rpm/morie.repo">rpm/morie.repo</a><span>dnf and yum repository</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <span>apt-morie · AGPL-3.0-or-later</span>
+    <a href="https://github.com/rootcoder007/morie">morie</a>
+    <a href="https://pypi.org/project/morie/">PyPI</a>
+    <a href="https://rootcoder007.r-universe.dev">r-universe</a>
+    <a href="https://github.com/rootcoder007/homebrew-morie">Homebrew tap</a>
+    <a href="https://www.rmorie.com">rmorie.com</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var mgr = 'apt';
+  var tabs = [].slice.call(document.querySelectorAll('.seg [role=tab]'));
+  var labels = { 't-apt': 'Debian / Ubuntu', 't-dnf': 'Fedora', 't-rhel': 'RHEL 8–10' };
+  function picked() {
+    return [].slice.call(document.querySelectorAll('.chip input:checked')).map(function (i) { return i.value; });
+  }
+  function render() {
+    var p = picked();
+    document.getElementById('install').textContent = p.length
+      ? 'sudo ' + mgr + ' install ' + p.join(' ') : '# pick one or more packages';
+    document.getElementById('hero-cmd').textContent = 'sudo ' + mgr + ' install ' + (p.length ? p.join(' ') : 'morie');
+  }
+  function pick(t, focus) {
+    tabs.forEach(function (q) {
+      var on = q === t;
+      q.setAttribute('aria-selected', on ? 'true' : 'false');
+      q.tabIndex = on ? 0 : -1;
+      document.getElementById(q.getAttribute('aria-controls')).hidden = !on;
+    });
+    mgr = t.id === 't-apt' ? 'apt' : 'dnf';
+    document.getElementById('hero-os-label').textContent = labels[t.id];
+    render();
+    if (focus) t.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { pick(t); });
+    t.addEventListener('keydown', function (e) {
+      var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : null;
+      if (j === null) return;
+      e.preventDefault(); pick(tabs[(j + tabs.length) % tabs.length], true);
+    });
+  });
+  document.getElementById('hero-os').addEventListener('click', function () {
+    var cur = tabs.findIndex(function (t) { return t.getAttribute('aria-selected') === 'true'; });
+    pick(tabs[(cur + 1) % tabs.length]);
+  });
+  [].forEach.call(document.querySelectorAll('.chip input'), function (c) { c.addEventListener('change', render); });
+  if (/Fedora/i.test(navigator.userAgent)) pick(document.getElementById('t-dnf'));
+
+  var icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
+  var tick = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>';
+  function wire(b, getText) {
+    b.innerHTML = icon;
+    b.addEventListener('click', function () {
+      if (!navigator.clipboard) return;
+      navigator.clipboard.writeText(getText()).then(function () {
+        b.innerHTML = tick; b.setAttribute('data-done', '');
+        setTimeout(function () { b.innerHTML = icon; b.removeAttribute('data-done'); }, 1400);
+      });
+    });
+  }
+  [].forEach.call(document.querySelectorAll('.code'), function (box) {
+    var b = document.createElement('button');
+    b.className = 'copy'; b.type = 'button'; b.setAttribute('aria-label', 'Copy');
+    box.appendChild(b);
+    wire(b, function () { return box.querySelector('code').innerText.replace(/[ \t]+#[^\n]*/g, ''); });
+  });
+  wire(document.querySelector('.cmdline .copy'), function () { return document.getElementById('hero-cmd').textContent; });
+
+  var root = document.documentElement, KEY = 'apt-morie-theme';
+  try { var s = localStorage.getItem(KEY); if (s) root.setAttribute('data-theme', s); } catch (e) {}
+  document.getElementById('theme').addEventListener('click', function () {
+    var cur = root.getAttribute('data-theme');
+    var dark = cur ? cur === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var next = dark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+  });
+})();
+</script>
+<noscript><style>.panel[hidden]{display:block}.seg,.chips,#hero-os{display:none}</style></noscript>
+</body>
+</html>
