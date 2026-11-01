@@ -9,8 +9,12 @@
 #
 # morie's workflow rewrites the index with only the morie version it just
 # built. Its push starts this workflow, which rebuilds the apt and dnf
-# metadata from every package in the pool, so the R packages (and older
-# morie versions) stay installable.
+# metadata from every package in the pool, so the R packages stay
+# installable.
+#
+# - The pool keeps only the newest version of each package and
+#   architecture (packaging/latest.py); older files are removed before the
+#   metadata is rebuilt, so apt and dnf offer the current release only.
 #
 # - The R packages are thin wrappers: the post-install script installs the
 #   package from r-universe and compiles it on the target machine, hence
@@ -158,7 +162,11 @@ jobs:
             mkdir -p apt/pool/main rpm/packages
             cp dist/*.deb apt/pool/main/ 2>/dev/null || true
             cp dist/*.rpm rpm/packages/ 2>/dev/null || true
-            if [ ! -s built.txt ] && [ ! -s resigned.txt ] && python3 packaging/plan.py --complete; then
+            # only the newest version of each package and architecture stays
+            python3 packaging/latest.py --old apt/pool/main/*.deb rpm/packages/*.rpm > old.txt
+            if [ -s old.txt ]; then xargs rm -f -- < old.txt; fi
+            echo "older versions removed: $(wc -l < old.txt)"
+            if [ ! -s built.txt ] && [ ! -s resigned.txt ] && [ ! -s old.txt ] && python3 packaging/plan.py --complete; then
               echo "index already lists every package in the pool; nothing to do"
               exit 0
             fi
@@ -166,6 +174,7 @@ jobs:
             git add -A apt rpm
             what=$(tr '\n' ' ' < built.txt)
             [ -s resigned.txt ] && what="${what}re-signed $(wc -l < resigned.txt) rpm "
+            [ -s old.txt ] && what="${what}removed $(wc -l < old.txt) older files "
             git commit -q -m "Publish apt/dnf repo: ${what:-reindex}"
             if git push origin HEAD:main; then exit 0; fi
             echo "push lost a race (try ${try}); starting again from the new main"

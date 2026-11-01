@@ -94,8 +94,10 @@ Two workflows write to it:
 
 Whichever of them ran last, `publish.yml` then rebuilds the apt and dnf
 metadata from every package in the pool ([`packaging/reindex.sh`](packaging/reindex.sh))
-and signs it, so a morie release never drops the R packages or older
-versions. It skips a run with nothing to do, re-signs any package the key
+and signs it, so a morie release never drops the R packages. The pool
+keeps only the newest version of each package and architecture
+([`packaging/latest.py`](packaging/latest.py)); older files are removed
+first. It skips a run with nothing to do, re-signs any package the key
 does not verify (after a key change), and refuses to sign with any key but
 the one in `key.gpg`. Signing uses the `GPG_PRIVATE_KEY` and
 `GPG_PASSPHRASE` repository secrets; without them it publishes nothing.
