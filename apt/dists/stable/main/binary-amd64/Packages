@@ -5,68 +5,14 @@ Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
 Installed-Size: 0
 Depends: python3 (>= 3.10), python3-venv, python3-pip
 Filename: pool/main/morie_1.5.3_amd64.deb
-Size: 1492
-MD5sum: 560d3acebeebc6fb0c3ebaf8b4a39ed2
-SHA1: b19d85aac1ae8f8db425f93c88a7f49f7b752213
-SHA256: b537ce6ae19daf9f51390a6c349fe2443988165d4a19c8a81c5383bdde3f8f8e
+Size: 1494
+MD5sum: 4af244f8104324dd8e5866e9c0aeaa7f
+SHA1: 23f8e981432ed4873c1d3aeafdc2c281d62253e7
+SHA256: 9f14bd1840763a2a1f1290541d0d09dcf0067f6b2fe336f137b8d9c4a9d141e9
 Section: default
 Priority: optional
 Homepage: https://github.com/rootcoder007/morie
 Description: Multi-domain Open Research and Inferential Estimation (morie).
-License: AGPL-3.0-or-later
-Vendor: none
-
-Package: rmorie
-Version: 1.5.2
-Architecture: all
-Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
-Installed-Size: 0
-Depends: r-base-core (>= 4.3.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev, rmoriebricklayer, rmoriedata
-Filename: pool/main/rmorie_1.5.2_all.deb
-Size: 1828
-MD5sum: 77e509fc9384963da8a19f9cd73ac2f7
-SHA1: c9e777a9f94e2371f7977afc29f4edaf84409ede
-SHA256: 894ae1415a28e9301f1eaaabfead029ef9401646f0578bf75920d279a58695be
-Section: default
-Priority: optional
-Homepage: https://github.com/rootcoder007/rmorie
-Description: MORIE ecosystem R package rmorie (installs from r-universe).
-License: AGPL-3.0-or-later
-Vendor: none
-
-Package: rmoriebricklayer
-Version: 1.0.5
-Architecture: all
-Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
-Installed-Size: 0
-Depends: r-base-core (>= 4.1.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev
-Filename: pool/main/rmoriebricklayer_1.0.5_all.deb
-Size: 1848
-MD5sum: 36bd5df61310e88cac143a01b093854f
-SHA1: e875612b818ab53a9a4f2d535160b9668c17ff8e
-SHA256: e80c0d0cd703d39e6353ced1316003b913e29a857e1703f1ffd3033113e31336
-Section: default
-Priority: optional
-Homepage: https://github.com/rootcoder007/rmorie-bricklayer
-Description: MORIE ecosystem R package rmoriebricklayer (installs from r-universe).
-License: AGPL-3.0-only
-Vendor: none
-
-Package: rmoriedata
-Version: 0.4.1
-Architecture: all
-Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
-Installed-Size: 0
-Depends: r-base-core (>= 4.3.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev, rmoriebricklayer
-Filename: pool/main/rmoriedata_0.4.1_all.deb
-Size: 1842
-MD5sum: 917fd88f09c6aee0a7be64b338e4c543
-SHA1: 03c844a4598a290f134362360620e7287806f16b
-SHA256: 6b19daeec7b667718a7f8918436bf10881af78f7f7661b953078238a10a783ba
-Section: default
-Priority: optional
-Homepage: https://github.com/rootcoder007/rmoriedata
-Description: MORIE ecosystem R package rmoriedata (installs from r-universe).
 License: AGPL-3.0-or-later
 Vendor: none
 
