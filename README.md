@@ -1,6 +1,6 @@
 # apt-morie
 
-**Signed apt *and* dnf repository for the [MORIE ecosystem](https://github.com/rootcoder007/morie)**, served from GitHub Pages at <https://rootcoder007.github.io/apt-morie/>.
+**Signed apt *and* dnf repository for the [MORIE ecosystem](https://github.com/rootcoder007/morie)**, served from GitHub Pages at <https://apt.rmorie.com/>.
 
 Despite the name, this one repository serves **both** package ecosystems, for **four packages**:
 
@@ -13,9 +13,9 @@ Despite the name, this one repository serves **both** package ecosystems, for **
 
 | Path | Ecosystem | Contents |
 |---|---|---|
-| [`apt/`](https://rootcoder007.github.io/apt-morie/apt/) | Debian / Ubuntu | `.deb` pool + signed `Release`/`InRelease` |
-| [`rpm/`](https://rootcoder007.github.io/apt-morie/rpm/) | Fedora / RHEL | signed `.rpm` packages + `repodata/` + [`morie.repo`](https://rootcoder007.github.io/apt-morie/rpm/morie.repo) |
-| [`key.gpg`](https://rootcoder007.github.io/apt-morie/key.gpg) | both | ASCII-armored public signing key |
+| [`apt/`](https://apt.rmorie.com/apt/) | Debian / Ubuntu | `.deb` pool + signed `Release`/`InRelease` |
+| [`rpm/`](https://apt.rmorie.com/rpm/) | Fedora / RHEL | signed `.rpm` packages + `repodata/` + [`morie.repo`](https://apt.rmorie.com/rpm/morie.repo) |
+| [`key.gpg`](https://apt.rmorie.com/key.gpg) | both | ASCII-armored public signing key |
 
 > **Signing key changed on 30 October 2026.** The repository is now signed
 > with `F82E A8D6 55D9 1879 570F  A1BE 6E5D 6869 2E9D AB51`
@@ -27,9 +27,9 @@ Despite the name, this one repository serves **both** package ecosystems, for **
 
 ```bash
 sudo install -d -m 0755 /etc/apt/keyrings
-curl -fsSL https://rootcoder007.github.io/apt-morie/key.gpg \
+curl -fsSL https://apt.rmorie.com/key.gpg \
   | sudo gpg --dearmor -o /etc/apt/keyrings/rootcoder007.gpg
-echo "deb [signed-by=/etc/apt/keyrings/rootcoder007.gpg] https://rootcoder007.github.io/apt-morie/apt stable main" \
+echo "deb [signed-by=/etc/apt/keyrings/rootcoder007.gpg] https://apt.rmorie.com/apt stable main" \
   | sudo tee /etc/apt/sources.list.d/morie.list
 sudo apt update
 sudo apt install morie                                # Python toolkit
@@ -39,23 +39,23 @@ sudo apt install rmorie rmoriedata rmoriebricklayer   # R packages
 ## Install — Fedora 41+ (dnf5)
 
 ```bash
-sudo dnf config-manager addrepo --from-repofile=https://rootcoder007.github.io/apt-morie/rpm/morie.repo
+sudo dnf config-manager addrepo --from-repofile=https://apt.rmorie.com/rpm/morie.repo
 sudo dnf install morie
 sudo dnf install rmorie rmoriedata rmoriebricklayer   # R packages
-# after a key change: sudo rpm --import https://rootcoder007.github.io/apt-morie/key.gpg
+# after a key change: sudo rpm --import https://apt.rmorie.com/key.gpg
 ```
 
 ## Install — Fedora ≤ 40 / RHEL 8-9 (dnf4)
 
 ```bash
-sudo dnf config-manager --add-repo https://rootcoder007.github.io/apt-morie/rpm/morie.repo
+sudo dnf config-manager --add-repo https://apt.rmorie.com/rpm/morie.repo
 sudo dnf install morie
 ```
 
 ## Install — older RHEL / CentOS (yum)
 
 ```bash
-sudo yum-config-manager --add-repo https://rootcoder007.github.io/apt-morie/rpm/morie.repo
+sudo yum-config-manager --add-repo https://apt.rmorie.com/rpm/morie.repo
 sudo yum install morie
 ```
 

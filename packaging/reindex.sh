@@ -44,11 +44,11 @@ sign --detach-sign rpm/repodata/repomd.xml.asc rpm/repodata/repomd.xml
 cat > rpm/morie.repo <<'REPO'
 [morie]
 name=morie (rootcoder007)
-baseurl=https://rootcoder007.github.io/apt-morie/rpm
+baseurl=https://apt.rmorie.com/rpm
 enabled=1
 gpgcheck=1
 repo_gpgcheck=1
-gpgkey=https://rootcoder007.github.io/apt-morie/key.gpg
+gpgkey=https://apt.rmorie.com/key.gpg
 REPO
 
 echo "apt: $(grep -c '^Package:' apt/dists/stable/main/binary-amd64/Packages) amd64 entries," \

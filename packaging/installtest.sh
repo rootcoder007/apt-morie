@@ -4,7 +4,7 @@
 # RHEL-family system.
 #
 # Usage: installtest.sh <base-url> <package>...
-#   base-url  https://rootcoder007.github.io/apt-morie (or a local copy)
+#   base-url  https://apt.rmorie.com (or a local copy)
 #   package   morie, rmorie, rmoriedata or rmoriebricklayer
 
 set -eu
@@ -26,12 +26,12 @@ if command -v apt-get >/dev/null 2>&1; then
 else
   if command -v dnf5 >/dev/null 2>&1; then
     dnf install -y -q dnf5-plugins
-    curl -fsSL "$BASE/rpm/morie.repo" | sed "s#https://rootcoder007.github.io/apt-morie#$BASE#" \
+    curl -fsSL "$BASE/rpm/morie.repo" | sed "s#https://apt.rmorie.com#$BASE#" \
       > /etc/yum.repos.d/morie.repo
   else
     dnf install -y -q dnf-plugins-core epel-release
     dnf config-manager --set-enabled crb
-    curl -fsSL "$BASE/rpm/morie.repo" | sed "s#https://rootcoder007.github.io/apt-morie#$BASE#" \
+    curl -fsSL "$BASE/rpm/morie.repo" | sed "s#https://apt.rmorie.com#$BASE#" \
       > /etc/yum.repos.d/morie.repo
   fi
   dnf install -y "$@"

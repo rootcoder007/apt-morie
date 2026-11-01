@@ -203,22 +203,22 @@ footer a:hover{color:var(--fg)}
           <p class="stephead"><span>01</span>Add the repository</p>
           <div class="panel" id="p-apt" role="tabpanel" aria-labelledby="t-apt">
             <div class="code"><pre><code>sudo install -d -m 0755 /etc/apt/keyrings
-curl -fsSL https://rootcoder007.github.io/apt-morie/key.gpg \
+curl -fsSL https://apt.rmorie.com/key.gpg \
   | sudo gpg --dearmor -o /etc/apt/keyrings/rootcoder007.gpg
-echo "deb [signed-by=/etc/apt/keyrings/rootcoder007.gpg] https://rootcoder007.github.io/apt-morie/apt stable main" \
+echo "deb [signed-by=/etc/apt/keyrings/rootcoder007.gpg] https://apt.rmorie.com/apt stable main" \
   | sudo tee /etc/apt/sources.list.d/morie.list
 sudo apt update</code></pre></div>
           </div>
           <div class="panel" id="p-dnf" role="tabpanel" aria-labelledby="t-dnf" hidden>
             <div class="code"><pre><code>sudo dnf config-manager addrepo \
-  --from-repofile=https://rootcoder007.github.io/apt-morie/rpm/morie.repo</code></pre></div>
-            <p class="hint">Fedora 40 and older: <code>sudo dnf config-manager --add-repo https://rootcoder007.github.io/apt-morie/rpm/morie.repo</code></p>
+  --from-repofile=https://apt.rmorie.com/rpm/morie.repo</code></pre></div>
+            <p class="hint">Fedora 40 and older: <code>sudo dnf config-manager --add-repo https://apt.rmorie.com/rpm/morie.repo</code></p>
           </div>
           <div class="panel" id="p-rhel" role="tabpanel" aria-labelledby="t-rhel" hidden>
             <div class="code"><pre><code>sudo dnf install epel-release              <span class="c"># the R packages need EPEL and CRB</span>
 sudo dnf config-manager --set-enabled crb
 sudo dnf config-manager --add-repo \
-  https://rootcoder007.github.io/apt-morie/rpm/morie.repo</code></pre></div>
+  https://apt.rmorie.com/rpm/morie.repo</code></pre></div>
           </div>
         </div>
         <div>
@@ -279,10 +279,10 @@ sudo dnf config-manager --add-repo \
         <h2>One signing key</h2>
         <p class="sub" style="margin-bottom:1.25rem">Everything here is signed by &ldquo;MORIE packaging&rdquo;. The key changed
         on 30 October 2026: if you added the repository before then, run step 01 again (on dnf,
-        <code>sudo rpm --import https://rootcoder007.github.io/apt-morie/key.gpg</code>). Until you do,
+        <code>sudo rpm --import https://apt.rmorie.com/key.gpg</code>). Until you do,
         <code>apt update</code> and <code>dnf</code> refuse the repository.</p>
         <div class="fp">F82E A8D6 55D9 1879 570F  A1BE 6E5D 6869 2E9D AB51</div>
-        <div class="code"><pre><code>curl -fsSL https://rootcoder007.github.io/apt-morie/key.gpg | gpg --show-keys</code></pre></div>
+        <div class="code"><pre><code>curl -fsSL https://apt.rmorie.com/key.gpg | gpg --show-keys</code></pre></div>
       </div>
       <div>
         <p class="kicker">Files</p>

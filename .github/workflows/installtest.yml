@@ -26,7 +26,7 @@ jobs:
           persist-credentials: false
       - name: wait until the site serves this commit's index
         run: |
-          base=https://rootcoder007.github.io/apt-morie
+          base=https://apt.rmorie.com
           for i in $(seq 1 60); do
             ok=1
             for f in apt/dists/stable/InRelease rpm/repodata/repomd.xml; do
@@ -58,4 +58,4 @@ jobs:
         with:
           persist-credentials: false
       - name: install, use and remove ${{ matrix.package }}
-        run: sh packaging/installtest.sh https://rootcoder007.github.io/apt-morie ${{ matrix.package }}
+        run: sh packaging/installtest.sh https://apt.rmorie.com ${{ matrix.package }}
