@@ -15,7 +15,7 @@ const PREFIX = "apt-morie";
 const SHORT = 300;
 const LONG = 86400;
 // part of the edge cache key: raise it to drop every copy the edge holds from Pages
-const GEN = 2;
+const GEN = 3;
 
 const isIndex = (p) =>
   /\/(InRelease|Release|Release\.gpg|Packages(\.gz|\.xz)?)$/.test(p) ||

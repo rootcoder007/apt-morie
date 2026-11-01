@@ -58,7 +58,7 @@ assert.equal(r.status, 405);
 // the URL parser resolves %2e%2e before the Worker sees it: /apt/%2e%2e/x is /x, inside the repo
 r = await get("/apt/%2e%2e/x");
 assert.equal(r.status, 404);
-assert.equal(seen.at(-1)[0], "https://rootcoder007.github.io/apt-morie/x?g=2");
+assert.equal(seen.at(-1)[0], "https://rootcoder007.github.io/apt-morie/x?g=3");
 
 // the site page is held at the edge as briefly as the indexes; packages a day
 assert.equal(ttl("/index.html"), 300);
