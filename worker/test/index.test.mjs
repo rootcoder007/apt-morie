@@ -1,6 +1,6 @@
 // node test/index.test.mjs: R2 first, then Pages; paths cleaned; methods limited.
 import assert from "node:assert/strict";
-import worker, { cleanPath } from "../src/index.js";
+import worker, { cleanPath, ttl } from "../src/index.js";
 
 // paths
 assert.equal(cleanPath("/"), "/index.html");
@@ -23,7 +23,7 @@ const MIRROR = {
 // fake Pages
 const seen = [];
 globalThis.fetch = async (url, init) => {
-  seen.push([url, init.method]);
+  seen.push([url, init.method, init.cf]);
   if (url.endsWith("/key.gpg")) return new Response("PAGES KEY", { status: 200, headers: { "content-length": "9" } });
   return new Response("nope", { status: 404 });
 };
@@ -59,6 +59,15 @@ assert.equal(r.status, 405);
 r = await get("/apt/%2e%2e/x");
 assert.equal(r.status, 404);
 assert.equal(seen.at(-1)[0], "https://rootcoder007.github.io/apt-morie/x");
+
+// the site page is held at the edge as briefly as the indexes; packages a day
+assert.equal(ttl("/index.html"), 300);
+assert.equal(ttl("/apt/dists/stable/InRelease"), 300);
+assert.equal(ttl("/apt/pool/bookworm/r-cran-rmorie_1.5.2_amd64.deb"), 86400);
+r = await get("/");
+assert.equal(seen.at(-1)[0], "https://rootcoder007.github.io/apt-morie/index.html");
+assert.equal(seen.at(-1)[2].cacheTtl, 300);
+assert.match(seen.at(-1)[2].cacheKey, /\/index\.html\?g=\d+$/);
 
 // no R2 binding at all: Pages answers
 r = await worker.fetch(new Request("https://apt.rmorie.com/key.gpg"), {});

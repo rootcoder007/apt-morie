@@ -14,6 +14,8 @@ const PREFIX = "apt-morie";
 // the signed indexes change on every publish; the packages never change under one name
 const SHORT = 300;
 const LONG = 86400;
+// part of the edge cache key: raise it to drop every copy the edge holds from Pages
+const GEN = 2;
 
 const isIndex = (p) =>
   /\/(InRelease|Release|Release\.gpg|Packages(\.gz|\.xz)?)$/.test(p) ||
@@ -47,9 +49,11 @@ const TYPES = {
 };
 const typeOf = (p) => TYPES[Object.keys(TYPES).find((e) => p.endsWith(e))] || "application/octet-stream";
 
+// the pages and indexes change on every publish; the packages never change under one name
+export const ttl = (p) => (isIndex(p) || p.endsWith(".html") ? SHORT : LONG);
+
 function cacheHeader(p) {
-  const age = isIndex(p) || p.endsWith(".html") ? SHORT : LONG;
-  return `public, max-age=${age}`;
+  return `public, max-age=${ttl(p)}`;
 }
 
 async function fromR2(env, p, req) {
@@ -81,7 +85,7 @@ async function fromPages(p, req) {
   const r = await fetch(PAGES + p, {
     method: req.method,
     headers: fwd,
-    cf: { cacheTtl: isIndex(p) ? SHORT : LONG, cacheEverything: true },
+    cf: { cacheTtl: ttl(p), cacheEverything: true, cacheKey: `${PAGES}${p}?g=${GEN}` },
   });
   const h = new Headers();
   for (const k of ["content-length", "content-range", "etag", "last-modified", "accept-ranges"]) {
