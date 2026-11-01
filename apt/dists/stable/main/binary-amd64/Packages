@@ -862,6 +862,24 @@ Description: MORIE ecosystem R package rmoriebricklayer (installs from r-univers
 License: AGPL-3.0-only
 Vendor: none
 
+Package: rmoriebricklayer
+Version: 1.0.5
+Architecture: all
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: r-base-core (>= 4.1.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev
+Filename: pool/main/rmoriebricklayer_1.0.5_all.deb
+Size: 1848
+MD5sum: 36bd5df61310e88cac143a01b093854f
+SHA1: e875612b818ab53a9a4f2d535160b9668c17ff8e
+SHA256: e80c0d0cd703d39e6353ced1316003b913e29a857e1703f1ffd3033113e31336
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/rmorie-bricklayer
+Description: MORIE ecosystem R package rmoriebricklayer (installs from r-universe).
+License: AGPL-3.0-only
+Vendor: none
+
 Package: rmoriedata
 Version: 0.4.1
 Architecture: all
