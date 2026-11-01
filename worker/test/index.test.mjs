@@ -24,7 +24,7 @@ const MIRROR = {
 const seen = [];
 globalThis.fetch = async (url, init) => {
   seen.push([url, init.method, init.cf]);
-  if (url.endsWith("/key.gpg")) return new Response("PAGES KEY", { status: 200, headers: { "content-length": "9" } });
+  if (url.includes("/key.gpg?")) return new Response("PAGES KEY", { status: 200, headers: { "content-length": "9" } });
   return new Response("nope", { status: 404 });
 };
 const env = { MIRROR };
@@ -43,7 +43,7 @@ assert.equal(r.status, 200);
 assert.equal(r.headers.get("x-served-from"), "pages");
 assert.match(r.headers.get("cache-control"), /max-age=300/);
 assert.equal(await r.text(), "PAGES KEY");
-assert.equal(seen.at(-1)[0], "https://rootcoder007.github.io/apt-morie/key.gpg");
+assert.match(seen.at(-1)[0], /^https:\/\/rootcoder007\.github\.io\/apt-morie\/key\.gpg\?g=\d+$/);
 
 r = await get("/apt/dists/stable/nothing");
 assert.equal(r.status, 404);
@@ -58,16 +58,15 @@ assert.equal(r.status, 405);
 // the URL parser resolves %2e%2e before the Worker sees it: /apt/%2e%2e/x is /x, inside the repo
 r = await get("/apt/%2e%2e/x");
 assert.equal(r.status, 404);
-assert.equal(seen.at(-1)[0], "https://rootcoder007.github.io/apt-morie/x");
+assert.equal(seen.at(-1)[0], "https://rootcoder007.github.io/apt-morie/x?g=2");
 
 // the site page is held at the edge as briefly as the indexes; packages a day
 assert.equal(ttl("/index.html"), 300);
 assert.equal(ttl("/apt/dists/stable/InRelease"), 300);
 assert.equal(ttl("/apt/pool/bookworm/r-cran-rmorie_1.5.2_amd64.deb"), 86400);
 r = await get("/");
-assert.equal(seen.at(-1)[0], "https://rootcoder007.github.io/apt-morie/index.html");
+assert.match(seen.at(-1)[0], /^https:\/\/rootcoder007\.github\.io\/apt-morie\/index\.html\?g=\d+$/);
 assert.equal(seen.at(-1)[2].cacheTtl, 300);
-assert.match(seen.at(-1)[2].cacheKey, /\/index\.html\?g=\d+$/);
 
 // no R2 binding at all: Pages answers
 r = await worker.fetch(new Request("https://apt.rmorie.com/key.gpg"), {});

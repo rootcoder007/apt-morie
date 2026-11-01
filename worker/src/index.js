@@ -82,10 +82,11 @@ async function fromPages(p, req) {
     const v = req.headers.get(k);
     if (v) fwd.set(k, v);
   }
-  const r = await fetch(PAGES + p, {
+  // GEN rides in the query (Pages ignores it): the edge caches by URL, and cacheKey is Enterprise-only
+  const r = await fetch(`${PAGES}${p}?g=${GEN}`, {
     method: req.method,
     headers: fwd,
-    cf: { cacheTtl: ttl(p), cacheEverything: true, cacheKey: `${PAGES}${p}?g=${GEN}` },
+    cf: { cacheTtl: ttl(p), cacheEverything: true },
   });
   const h = new Headers();
   for (const k of ["content-length", "content-range", "etag", "last-modified", "accept-ranges"]) {
