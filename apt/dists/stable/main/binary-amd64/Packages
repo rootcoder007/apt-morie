@@ -16,3 +16,57 @@ Description: Multi-domain Open Research and Inferential Estimation (morie).
 License: AGPL-3.0-or-later
 Vendor: none
 
+Package: rmorie
+Version: 1.5.3
+Architecture: all
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: r-base-core (>= 4.3.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev, rmoriebricklayer, rmoriedata
+Filename: pool/main/rmorie_1.5.3_all.deb
+Size: 1834
+MD5sum: 6373ecc3de0bba92325ee277e98bd5c1
+SHA1: 23ff3a775bd5b37683e6b700b630ab078bc6cbde
+SHA256: afb8ba24fe79e09bf4e2165ab566c822044f5f6f1cd19a2c7a92c0345b84b4bc
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/rmorie
+Description: MORIE ecosystem R package rmorie (installs from r-universe).
+License: AGPL-3.0-or-later
+Vendor: none
+
+Package: rmoriebricklayer
+Version: 1.1.0
+Architecture: all
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: r-base-core (>= 4.1.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev
+Filename: pool/main/rmoriebricklayer_1.1.0_all.deb
+Size: 1842
+MD5sum: 52a7071baac9d1fea63376e166ae05bf
+SHA1: 8b56d3ac7f74d2f96d37c75be09dfca42700157c
+SHA256: bcec8c28cb5f56b03c9c0786e84547af557e5306344146fe4adcc011af8a4e1d
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/rmorie-bricklayer
+Description: MORIE ecosystem R package rmoriebricklayer (installs from r-universe).
+License: AGPL-3.0-only
+Vendor: none
+
+Package: rmoriedata
+Version: 0.4.1
+Architecture: all
+Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
+Installed-Size: 0
+Depends: r-base-core (>= 4.3.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev, rmoriebricklayer
+Filename: pool/main/rmoriedata_0.4.1_all.deb
+Size: 1842
+MD5sum: 917fd88f09c6aee0a7be64b338e4c543
+SHA1: 03c844a4598a290f134362360620e7287806f16b
+SHA256: 6b19daeec7b667718a7f8918436bf10881af78f7f7661b953078238a10a783ba
+Section: default
+Priority: optional
+Homepage: https://github.com/rootcoder007/rmoriedata
+Description: MORIE ecosystem R package rmoriedata (installs from r-universe).
+License: AGPL-3.0-or-later
+Vendor: none
+
