@@ -1,0 +1,16 @@
+name = "apt-rmorie"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = false
+
+# apt.rmorie.com: deploying creates the DNS record and the certificate
+routes = [{ pattern = "apt.rmorie.com", custom_domain = true }]
+
+# the bucket morie-mirror already fills; this Worker only reads it, under apt-morie/
+[[r2_buckets]]
+binding = "MIRROR"
+bucket_name = "morie-mirror"
+preview_bucket_name = "morie-mirror-test"
+
+[observability]
+enabled = true

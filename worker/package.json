@@ -1,0 +1,6 @@
+{
+  "name": "apt-rmorie",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node test/index.test.mjs" }
+}
