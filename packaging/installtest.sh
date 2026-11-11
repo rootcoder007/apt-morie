@@ -20,7 +20,14 @@ if command -v apt-get >/dev/null 2>&1; then
   curl -fsSL "$BASE/key.gpg" | gpg --dearmor --yes -o /etc/apt/keyrings/rootcoder007.gpg
   echo "deb [signed-by=/etc/apt/keyrings/rootcoder007.gpg] $BASE/apt stable main" \
     > /etc/apt/sources.list.d/morie.list
-  apt-get update -q
+  # a CDN edge can serve a new InRelease beside an old Packages.gz for a minute after a
+  # publish; apt then refuses the index ("Mirror sync in progress?"): try again, then fail
+  n=0
+  until apt-get update -q -o Acquire::Retries=3; do
+    n=$((n + 1))
+    [ "$n" -ge 5 ] && exit 1
+    sleep 20
+  done
   apt-get install -y -q "$@"
   remove() { apt-get remove -y -q "$1"; }
 else

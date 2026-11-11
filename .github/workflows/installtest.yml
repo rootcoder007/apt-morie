@@ -27,11 +27,15 @@ jobs:
       - name: wait until the site serves this commit's index
         run: |
           base=https://apt.rmorie.com
+          # the URLs exactly as apt and dnf fetch them (no cache-busting query): the edge cache
+          # must serve this commit's InRelease and every Packages file it lists together, or apt
+          # refuses a Packages.gz whose size does not match ("Mirror sync in progress?")
+          files="apt/dists/stable/InRelease rpm/repodata/repomd.xml $(ls apt/dists/stable/main/binary-*/Packages* 2>/dev/null)"
           for i in $(seq 1 60); do
             ok=1
-            for f in apt/dists/stable/InRelease rpm/repodata/repomd.xml; do
+            for f in $files; do
               want=$(sha256sum "$f" | cut -d' ' -f1)
-              got=$(curl -fsSL -H 'Cache-Control: no-cache' "$base/$f?t=$(date +%s)" | sha256sum | cut -d' ' -f1)
+              got=$(curl -fsSL "$base/$f" | sha256sum | cut -d' ' -f1)
               [ "$want" = "$got" ] || ok=0
             done
             if [ "$ok" = 1 ]; then echo "the site serves $(git rev-parse --short HEAD)"; exit 0; fi
