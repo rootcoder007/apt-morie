@@ -53,16 +53,16 @@ License: AGPL-3.0-only
 Vendor: none
 
 Package: rmoriedata
-Version: 0.4.1
+Version: 0.4.2
 Architecture: all
 Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
 Installed-Size: 0
 Depends: r-base-core (>= 4.3.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev, rmoriebricklayer
-Filename: pool/main/rmoriedata_0.4.1_all.deb
-Size: 1842
-MD5sum: 917fd88f09c6aee0a7be64b338e4c543
-SHA1: 03c844a4598a290f134362360620e7287806f16b
-SHA256: 6b19daeec7b667718a7f8918436bf10881af78f7f7661b953078238a10a783ba
+Filename: pool/main/rmoriedata_0.4.2_all.deb
+Size: 1838
+MD5sum: 060c662d7ff7c98e19ace36eb9dfa9b6
+SHA1: f2a6ef76c48b3c62a57c1b884de38599ebfb4c4a
+SHA256: 19343468507dc47261083b58d3a63083d3dbf8502b8ed2fa85299869c717020b
 Section: default
 Priority: optional
 Homepage: https://github.com/rootcoder007/rmoriedata
