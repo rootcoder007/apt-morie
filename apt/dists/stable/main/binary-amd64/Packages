@@ -35,16 +35,16 @@ License: AGPL-3.0-or-later
 Vendor: none
 
 Package: rmoriebricklayer
-Version: 1.1.0
+Version: 1.1.1
 Architecture: all
 Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
 Installed-Size: 0
 Depends: r-base-core (>= 4.1.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev
-Filename: pool/main/rmoriebricklayer_1.1.0_all.deb
-Size: 1842
-MD5sum: 52a7071baac9d1fea63376e166ae05bf
-SHA1: 8b56d3ac7f74d2f96d37c75be09dfca42700157c
-SHA256: bcec8c28cb5f56b03c9c0786e84547af557e5306344146fe4adcc011af8a4e1d
+Filename: pool/main/rmoriebricklayer_1.1.1_all.deb
+Size: 1844
+MD5sum: 9e7e3db1ceb8ed13cb63b251c1cbaecc
+SHA1: 0b130f51f06bfd43077ceb21ca2a173977088c5d
+SHA256: 5e5b3b851bb52cd5fb46b039925e9c2530a9f5655498f5bec5eed8bbefa9df3c
 Section: default
 Priority: optional
 Homepage: https://github.com/rootcoder007/rmorie-bricklayer
