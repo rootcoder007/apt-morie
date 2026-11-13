@@ -17,16 +17,16 @@ License: AGPL-3.0-or-later
 Vendor: none
 
 Package: rmorie
-Version: 1.5.3
+Version: 1.5.4
 Architecture: all
 Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
 Installed-Size: 0
 Depends: r-base-core (>= 4.3.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev, rmoriebricklayer, rmoriedata
-Filename: pool/main/rmorie_1.5.3_all.deb
-Size: 1834
-MD5sum: 6373ecc3de0bba92325ee277e98bd5c1
-SHA1: 23ff3a775bd5b37683e6b700b630ab078bc6cbde
-SHA256: afb8ba24fe79e09bf4e2165ab566c822044f5f6f1cd19a2c7a92c0345b84b4bc
+Filename: pool/main/rmorie_1.5.4_all.deb
+Size: 1830
+MD5sum: 81a932aade292a3447154bffc3068344
+SHA1: 129fecd76f1d5304fbeeb2d5c000e2921cb5efc4
+SHA256: 3e8dbd42a4e8987fe59207dbe273fabc46d7b676d1f1c5aa35ce0985475db409
 Section: default
 Priority: optional
 Homepage: https://github.com/rootcoder007/rmorie
@@ -53,16 +53,16 @@ License: AGPL-3.0-only
 Vendor: none
 
 Package: rmoriedata
-Version: 0.4.2
+Version: 0.4.3
 Architecture: all
 Maintainer: Vansh Singh Ruhela <vsruhela@proton.me>
 Installed-Size: 0
 Depends: r-base-core (>= 4.3.0), r-base-dev, build-essential, libcurl4-openssl-dev, zlib1g-dev, rmoriebricklayer
-Filename: pool/main/rmoriedata_0.4.2_all.deb
-Size: 1838
-MD5sum: 060c662d7ff7c98e19ace36eb9dfa9b6
-SHA1: f2a6ef76c48b3c62a57c1b884de38599ebfb4c4a
-SHA256: 19343468507dc47261083b58d3a63083d3dbf8502b8ed2fa85299869c717020b
+Filename: pool/main/rmoriedata_0.4.3_all.deb
+Size: 1828
+MD5sum: 502287cc7816fe06cb97ae188262672c
+SHA1: 099fd4717a8ba2cd892fe0e45ca3c3094ab38f81
+SHA256: c49f2c6717561e5ddbed94a0eb12ebbe76ec5b1ada8ae60b16c6637d04534221
 Section: default
 Priority: optional
 Homepage: https://github.com/rootcoder007/rmoriedata
